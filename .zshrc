@@ -141,6 +141,8 @@ alias epfl='cd ~/EPFL/BA6/'
 alias ra='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias ran='ranger'
 
+alias less='less -F -X'
+
 alias night='redshift -O 2500k -b 0.9:0.9'
 
 alias gnp='git --no-pager'
