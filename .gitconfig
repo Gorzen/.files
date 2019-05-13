@@ -1,0 +1,16 @@
+[user]
+	name = Lucien Iseli
+	email = lucien.iseli93@gmail.com
+[alias]
+	pl = pull
+	ps = push
+	co = checkout
+	ci = commit
+	st = status -sb
+	a = add
+	d = diff
+	h = help
+	l = log --pretty=format:'%C(yellow)%h %C(blue)%ar %C(green)%aN %C(red)%d %C(reset)%s' --graph
+	b = branch
+[core]
+	editor = vim
