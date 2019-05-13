@@ -1,8 +1,6 @@
 #!/bin/bash
 echo "Installing Lulu's config"
 
-sudo apt install ranger
-
 mkdir ~/.config/ranger
 mkdir ~/.config/tilda
 
@@ -16,12 +14,14 @@ done
 
 rm ~/.zshrc
 rm ~/.vimrc
+rm ~/.tmux.conf
 rm ~/.gitconfig
 rm ~/.dircolors
 rm ~/.oh-my-zsh/custom/themes/lulu.zsh-theme
 
 ln -s ~/.files/.zshrc ~/.zshrc
 ln -s ~/.files/.vimrc ~/.vimrc
+ln -s ~/.files/.tmux.conf ~/.tmux.conf
 ln -s ~/.files/ranger/rc.conf ~/.config/ranger/rc.conf
 ln -s ~/.files/ranger/scope.sh ~/.config/ranger/scope.sh
 ln -s ~/.files/.gitconfig ~/.gitconfig
