@@ -135,6 +135,7 @@ alias apti='sudo apt install'
 alias aptr='sudo apt remove'
 
 export EDITOR=vim
+export PAGER=less
 
 alias epfl='cd ~/EPFL/BA6/'
 
@@ -143,7 +144,18 @@ alias ran='ranger'
 
 alias less='less -F -X'
 
-alias night='redshift -O 2500k -b 0.9:0.9'
+alias night='redshift -O 2500k -b 0.8:0.8'
 
 alias gnp='git --no-pager'
 alias gst='git status'
+
+alias mk='mkdir -p'
+alias ls='ls -v --color=tty'
+
+export EPFL_DIR=$HOME/EPFL/BA6
+
+mvep() { mv "$@" "$(du -a -d 3 $EPFL_DIR | awk '{print $2}' | grep -Fv . | fzf)"; }
+cpep() { cp "$@" "$(du -a -d 3 $EPFL_DIR | awk '{print $2}' | grep -Fv . | fzf)"; }
+mwep() { mv "$(du -a -d 1 ~/Downloads | awk '{print $2}' | fzf)" "$(du -a -d 3 $EPFL_DIR | awk '{print $2}' | grep -Fv . | fzf)"; }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
