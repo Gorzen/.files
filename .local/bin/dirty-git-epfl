@@ -10,6 +10,9 @@ while read -r folder; do
 		git "$@"
 	fi
 
+	# Show local branches with verbose to see if they are behind or ahead of remote
+	git branch -vv
+	# Show status of current branch to see if current working directory is dirty
 	git status -sb
 
 	printf "\n"
