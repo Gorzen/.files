@@ -49,8 +49,8 @@ colorscheme badwolf " colorscheme
 "call plug#end()
 
 
-nnoremap <Leader>N :NERDTreeToggle<Enter>
-nnoremap <Leader>n :NERDTreeFind<Enter>
+nnoremap <Leader>n :NERDTreeToggle<Enter>
+nnoremap <Leader>N :NERDTreeFind<Enter>
 
 nnoremap <C-P> :Files<CR>
 " Search in all files from current directory
@@ -114,6 +114,8 @@ set nofoldenable " disable folding
 " Move vertically by visual line and not by 'real' line
 nnoremap j gj
 nnoremap k gk
+
+nnoremap 0 ^
 
 " Jump to last position, e.g. last time file was closed
 if has("autocmd")

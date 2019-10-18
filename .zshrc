@@ -127,6 +127,7 @@ alias fs='cd ~/EPFL/MA1/Stats'
 alias fis='cd ~/EPFL/MA1/InfoSec'
 alias fa='cd ~/EPFL/MA1/Ada'
 alias fr='cd ~/EPFL/MA1/SHS'
+alias frc='cd ~/EPFL/MA1/SHS/Conferences'
 
 # Open stuff
 alias search='cd $HOME; file_search >> /dev/null; cd - >> /dev/null'
@@ -162,8 +163,6 @@ function pg {
 function gc {
 	git add .; git commit -m "$@"; git push
 }
-# Because of oh-my-zsh... which adds aliases
-alias gc='gc'
 
 # ISP
 ISP_HOST_FOLDER="/home/user/sploits/"
