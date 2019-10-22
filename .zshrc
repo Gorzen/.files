@@ -49,11 +49,11 @@ alias vc='vim ~/Documents/problems-config.md'
 
 # Basic programs
 alias v='vim'
-alias less='less -F'
 alias mk='mkdir -p'
 alias ls='ls -v --color=tty'
 alias diff='diff --color=auto'
 alias rm='rm -I'
+alias tre='tree -a -I ".git|venv|.venv"'
 
 # Apt
 alias update='sudo apt update && sudo apt upgrade && sudo apt dist-upgrade && sudo apt autoremove'
@@ -90,12 +90,6 @@ function gc {
 function gp {
 	git config --global core.pager "less -X"; git "$@"; git config --global core.pager "less"
 }
-
-# Kitty
-alias k='kitty --detach'
-alias k2='k; k'
-alias k3='k2; k'
-alias k4='k3; k'
 
 # Nmcli
 alias nmw='nmcli dev wifi'
