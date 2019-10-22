@@ -157,7 +157,7 @@ nnoremap <Leader>P "0P
 " Compile pdf from file (latex)
 nnoremap <Leader>L :w<CR>:!latexmk -cd -pdf %; latexmk -cd -c %<CR>
 " Press enter twice (to return to vim automatically if latexmk runs as expected)
-nmap <Leader>l <Leader>M<CR>
+nmap <Leader>l <Leader>L<CR>
 
 " Make
 nnoremap <Leader>M :w<CR>:!make<CR>
