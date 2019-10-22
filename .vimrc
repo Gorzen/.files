@@ -143,6 +143,8 @@ vnoremap 	<C-c> "*y :let @+=@*<CR>
 "vnoremap 	<C-x> "*d :let @+=@*<CR>
 "noremap 	<C-p> "+P
 nnoremap	<C-a> ggVG"*y :let @+=@*<CR>
+nnoremap <Leader>p "0p
+nnoremap <Leader>P "0P
 
 " ?
 "execute "set <xUp>=\e[1;*A"
