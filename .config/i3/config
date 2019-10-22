@@ -197,7 +197,7 @@ for_window [class=".*"] border pixel 3
 
 # Inner and outer gaps
 gaps inner 20
-gaps outer 5
+gaps outer 0
 
 # Smart gaps, i.e. if on: if there is only one window on a workspace: disables gaps
 smart_gaps on
@@ -238,7 +238,6 @@ bindsym $mod+p exec --no-startup-id center-mouse; exec --no-startup-id "passmenu
 bindsym $mod+b exec --no-startup-id "bookmarks; i3-msg 'workspace back_and_forth'; i3-msg 'workspace back_and_forth'"
 bindsym $mod+Shift+b exec --no-startup-id "bookmarks-add; i3-msg 'workspace back_and_forth'; i3-msg 'workspace back_and_forth'"
 bindsym $mod+Shift+s exec --no-startup-id spotify
-bindsym $mod+Shift+v exec vlc
 
 # Doesn't work yet
 #bindsym $mod+Shift+Print exec "termite --name=dropdown_screenshot -e 'screenshot -s'"
@@ -260,7 +259,7 @@ bindsym $mod+Shift+i exec --no-startup-id "xcalib -invert -alter"
 
 # Colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #e32424   #c2640c
+client.focused          #c2640c #c2640c #000000 #e32424   #c2640c
 client.focused_inactive #333333 #5f676a #ffffff #756f67   #756f67
 client.unfocused        #333333 #222222 #888888 #2922de   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
