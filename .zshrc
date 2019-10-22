@@ -1,4 +1,4 @@
-export ZSH="/home/lulu/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="lulu"
 
@@ -29,6 +29,10 @@ bindkey '^[OD' beep # 'Disable' right arrow
 
 # Aliases
 # Config
+## Reload config
+alias rr='source ~/.zshrc'
+alias rx='xrdb ~/.Xresources'
+## Edit config
 alias vz='vim ~/.zshrc'
 alias vp='vim ~/.zprofile'
 alias vv='vim ~/.vimrc'
@@ -37,13 +41,13 @@ alias vx='vim ~/.Xresources'
 alias vxi='vim ~/.xinitrc'
 alias vr='vim ~/.config/ranger/rc.conf'
 alias vte='vim ~/.config/termite/config'
-alias vt='vim ~/Documents/TODO.md'
 alias vi='vim ~/.config/i3/config'
 alias vib='vim ~/.config/i3blocks/config'
-alias rr='source ~/.zshrc'
-alias rx='xrdb ~/.Xresources'
+## Personal files
+alias vt='vim ~/Documents/TODO.md'
+alias vc='vim ~/Documents/problems-config.md'
 
-# GNU Basics
+# Basic programs
 alias v='vim'
 alias less='less -F'
 alias mk='mkdir -p'
@@ -68,16 +72,24 @@ alias ra='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; c
 alias ran='ranger' 
 
 # Monitors setup - xrandr
-# Enable second monitor
+## Enable second monitor
 alias dual-monitor='xrandr --output HDMI-1 --auto --left-of eDP-1'
-# Refresh xrandr, i.e. after unplugging HDMI for example, to disable second monitor
+## Refresh xrandr, i.e. after unplugging HDMI for example, to disable second monitor
 alias refresh-monitor='xrandr --auto'
 
 # Git
 alias g='git'
 alias gnp='git --no-pager'
 alias dg='dirty-git-epfl'
-alias dgf='dg fetch'
+alias dgf='dg fetch -q'
+## Quickly add, commit and push
+function gc {
+	git add .; git commit -m "$@"; git push
+}
+## Change pager for one command (less -X) don't clear less when quitting but can't scroll
+function gp {
+	git config --global core.pager "less -X"; git "$@"; git config --global core.pager "less"
+}
 
 # Kitty
 alias k='kitty --detach'
@@ -95,11 +107,12 @@ alias nmcu='nmcli con up'
 
 # Pip
 alias pi='pip install'
-alias spi='sudo pip install'
 alias pu='pip uninstall'
-alias spu='sudo pip uninstall'
 alias pl='pip list'
 alias pip-update="pip list --outdated | awk '{if (NR!=1 && NR!=2) {print $1;}}' | xargs -n1 pip install -U"
+
+# Jupyter
+alias jptl='jupyter lab &> /dev/null'
 
 # Virtual env
 alias venv='source .venv/bin/activate'
@@ -159,21 +172,22 @@ function pg {
 	ps -aux | grep "$@"	
 }
 
-# Quickly add, commit and push
-function gc {
-	git add .; git commit -m "$@"; git push
-}
+# Ada
+## Connect to cluster
+alias adac='ssh liseli@iccluster040.iccluster.epfl.ch'
+## Forward port 8080 from remote to localhost:8080
+alias adal='ssh -N -L 8080:localhost:8080 liseli@iccluster040.iccluster.epfl.ch'
 
 # ISP
 ISP_HOST_FOLDER="/home/user/sploits/"
 ISP_LOCAL_FOLDER="/home/lulu/EPFL/MA1/InfoSec/Homeworks/Homework-1/"
 ISP_FILE="sploit1.c"
 
-# Send file of interest to host
+## Send file of interest to host
 alias isp='sshpass -p user scp -P 2222 $ISP_LOCAL_FOLDER$ISP_FILE user@127.0.0.1:$ISP_HOST_FOLDER'
-# Get file of interest from host
+## Get file of interest from host
 alias ispt='sshpass -p user scp -P 2222 user@127.0.0.1:$ISP_HOST_FOLDER$ISP_FILE $ISP_LOCAL_FOLDER'
-# Connect to host
+## Connect to host
 alias ispc='sshpass -p user ssh -p 2222 user@127.0.0.1'
-# Send some file from local folder to host folder
-# Get some file from host folder to local folder
+## Send some file from local folder to host folder
+## Get some file from host folder to local folder
