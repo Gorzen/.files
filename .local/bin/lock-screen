@@ -1,12 +1,13 @@
 #!/bin/zsh
 
-LOCK_SCREEN="$HOME/.lock-screen.png"
-
-# Take screen shot
-scrot -o -q 25 "$LOCK_SCREEN"
-
-# Blur it
-convert "$LOCK_SCREEN" -scale 10% -blur 0x2 -resize 1000% "$LOCK_SCREEN"
-
-# Lock screen
-i3lock -e -i "$LOCK_SCREEN"
+i3lock -e --blur=2 --pass-screen-keys --composite -k \
+	--datestr="%A, %d %b %Y" \
+	--datecolor=ffffffff \
+	--timecolor=ffffffff \
+	--veriftext="" \
+	--wrongtext="" \
+	--insidecolor=06060aff \
+	--insidevercolor=06060aff \
+	--insidewrongcolor=06060aff \
+	--ringvercolor=cc9814ff \
+	--ringwrongcolor=de351bff

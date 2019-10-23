@@ -36,9 +36,9 @@ floating_modifier $mod
 #bindsym $mod+Return exec xfce4-terminal
 #bindsym $mod+Return exec --no-startup-id kitty --detach
 #bindsym $mod+Return exec sakura -e "kitty"
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec termite
 #bindsym $mod+Return exec urxvt
-bindsym $mod+u exec termite
+bindsym $mod+u exec urxvt
 #bindsym $mod+t exec termite
 #bindsym $mod+t exec kitty
 
@@ -233,7 +233,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id sudo increase-brightness # incr
 bindsym XF86MonBrightnessDown exec --no-startup-id sudo decrease-brightness # decrease screen brightness
 
 # Shortcuts applications
-bindsym $mod+q exec --no-startup-id qutebrowser
+bindsym $mod+q exec qutebrowser
 bindsym $mod+p exec --no-startup-id center-mouse; exec --no-startup-id "passmenu; i3-msg 'workspace back_and_forth'; i3-msg 'workspace back_and_forth'"
 bindsym $mod+b exec --no-startup-id "bookmarks; i3-msg 'workspace back_and_forth'; i3-msg 'workspace back_and_forth'"
 bindsym $mod+Shift+b exec --no-startup-id "bookmarks-add; i3-msg 'workspace back_and_forth'; i3-msg 'workspace back_and_forth'"
