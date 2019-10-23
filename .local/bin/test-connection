@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+connectivity=$(nmcli networking connectivity)
+
+while [ "$connectivity" != "full" ]; do
+	sleep 0.3
+	connectivity=$(nmcli networking connectivity)
+done
+
+echo "Connected to internet"
