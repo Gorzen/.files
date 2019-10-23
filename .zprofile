@@ -5,7 +5,7 @@ export TERMINAL="termite"
 export BROWSER="qutebrowser"
 export READER="zathura"
 export FILE="ranger"
-export LESS="-R -F"
+export LESS="-R"
 
 # My variables
 export EPFL_DIR="$HOME/EPFL/MA1"
