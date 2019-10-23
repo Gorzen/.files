@@ -1,13 +1,14 @@
 #!/bin/zsh
 
-i3lock -e --blur=2 --pass-screen-keys --composite -k \
+i3lock -e --blur=8 --indicator --pass-screen-keys --composite -k \
 	--datestr="%A, %d %b %Y" \
 	--datecolor=ffffffff \
 	--timecolor=ffffffff \
 	--veriftext="" \
 	--wrongtext="" \
-	--insidecolor=06060aff \
-	--insidevercolor=06060aff \
-	--insidewrongcolor=06060aff \
+	--ring-width 8 \
+	--insidecolor=06060abb \
+	--insidevercolor=06060abb \
+	--insidewrongcolor=06060abb \
 	--ringvercolor=cc9814ff \
 	--ringwrongcolor=de351bff
