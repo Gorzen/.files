@@ -13,6 +13,9 @@ xinput set-prop 12 319 1
 # Set delay beofre repeating key, and repeating rate
 xset r rate 350 25
 
+# Set screen-saver delay
+xset s 300
+
 # Xresources
 xrdb ~/.Xresources
 
