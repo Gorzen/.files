@@ -8,6 +8,7 @@
 	cl = clone
 	co = checkout
 	d = diff
+	ds = diff --staged
 	f = fetch
 	h = help
 	m = merge

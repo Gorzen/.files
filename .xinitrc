@@ -13,19 +13,22 @@ xinput set-prop 12 319 1
 # Set delay beofre repeating key, and repeating rate
 xset r rate 350 25
 
+# Xresources
+xrdb ~/.Xresources
+
 # Compositor
 #xcompmgr -c &
 compton -b
+
+# Notification daemon
+dunst &
 
 # Wallpaper
 ~/.fehbg &
 random-wallpaper &
 
-# Notification daemon
-dunst &
-
-# Xresources
-xrdb ~/.Xresources
+# Lock screen
+xss-lock -l -- lock-screen &
 
 # Start i3
 exec i3

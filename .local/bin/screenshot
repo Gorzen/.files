@@ -4,4 +4,4 @@ TIMESTAMP=$(date '+%Y-%m-%d-%H-%M-%S-%N')
 SCREENSHOT_NAME="Screenshot-$TIMESTAMP.png"
 SCREENSHOT_DIR="$HOME/Images/Screenshots/Misc"
 
-scrot $@ $SCREENSHOT_DIR/$SCREENSHOT_NAME
+scrot $@ "$SCREENSHOT_DIR/$SCREENSHOT_NAME"

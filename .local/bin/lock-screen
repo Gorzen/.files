@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+LOCK_SCREEN="$HOME/.lock-screen.png"
+
+# Take screen shot
+scrot -o -q 25 "$LOCK_SCREEN"
+
+# Blur it
+convert "$LOCK_SCREEN" -scale 10% -blur 0x2 -resize 1000% "$LOCK_SCREEN"
+
+# Lock screen
+i3lock -e -i "$LOCK_SCREEN"
