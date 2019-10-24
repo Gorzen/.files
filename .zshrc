@@ -54,6 +54,7 @@ alias ls='ls -v --color=tty'
 alias diff='diff --color=auto'
 alias rm='rm -I'
 alias tre='tree -a -I ".git|venv|.venv|*.class"'
+export LESS="$LESS -F"
 
 # Apt
 alias update='sudo apt update && sudo apt upgrade && sudo apt dist-upgrade && sudo apt autoremove'
