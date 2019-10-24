@@ -48,13 +48,13 @@ alias vt='vim ~/Documents/TODO.md'
 alias vc='vim ~/Documents/problems-config.md'
 
 # Basic programs
+export LESS="$LESS -F"
 alias v='vim'
 alias mk='mkdir -p'
 alias ls='ls -v --color=tty'
 alias diff='diff --color=auto'
 alias rm='rm -I'
 alias tre='tree -a -I ".git|venv|.venv|*.class"'
-export LESS="$LESS -F"
 
 # Apt
 alias update='sudo apt update && sudo apt upgrade && sudo apt dist-upgrade && sudo apt autoremove'
@@ -170,8 +170,10 @@ function pg {
 # Ada
 ## Connect to cluster
 alias adac='ssh liseli@iccluster040.iccluster.epfl.ch'
-## Forward port 8080 from remote to localhost:8080
-alias adal='ssh -N -L 8080:localhost:8080 liseli@iccluster040.iccluster.epfl.ch'
+## Forward port from remote to localhost (port as first argument)
+function adal {
+	ssh -N -L $1:localhost:$1 liseli@iccluster040.iccluster.epfl.ch
+}
 
 # ISP
 ISP_HOST_FOLDER="/home/user/sploits/"
