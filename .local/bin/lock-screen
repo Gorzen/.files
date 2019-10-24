@@ -4,6 +4,7 @@ i3lock -e --blur=8 --indicator --pass-screen-keys --composite -k \
 	--datestr="%A, %d %b %Y" \
 	--datecolor=ffffffff \
 	--timecolor=ffffffff \
+	--noinputtext="" \
 	--veriftext="" \
 	--wrongtext="" \
 	--ring-width 8 \
