@@ -172,7 +172,7 @@ function pg {
 alias adac='ssh liseli@iccluster040.iccluster.epfl.ch'
 ## Forward port from remote to localhost (port as first argument)
 function adal {
-	ssh -N -L $1:localhost:$1 liseli@iccluster040.iccluster.epfl.ch
+	ssh -N -L "$1":localhost:"$1" liseli@iccluster040.iccluster.epfl.ch
 }
 
 # ISP
