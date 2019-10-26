@@ -27,7 +27,6 @@ bindkey '^[OB' beep # 'Disable' down arrow
 bindkey '^[OC' beep # 'Disable' left arrow
 bindkey '^[OD' beep # 'Disable' right arrow
 
-# Aliases
 # Config
 ## Reload config
 alias rr='source ~/.zshrc'
@@ -43,6 +42,7 @@ alias vr='vim ~/.config/ranger/rc.conf'
 alias vte='vim ~/.config/termite/config'
 alias vi='vim ~/.config/i3/config'
 alias vib='vim ~/.config/i3blocks/config'
+alias vq='vim ~/.config/qutebrowser/config.py'
 ## Personal files
 alias vt='vim ~/Documents/TODO.md'
 alias vc='vim ~/Documents/problems-config.md'
@@ -54,7 +54,7 @@ alias mk='mkdir -p'
 alias ls='ls -v --color=tty'
 alias diff='diff --color=auto'
 alias rm='rm -I'
-alias tre='tree -a -I ".git|venv|.venv|*.class"'
+alias tre='tree -a -I ".git|venv|.venv|*.class|__pycache__|.idea|.ipynb_checkpoints"'
 
 # Apt
 alias update='sudo apt update && sudo apt upgrade && sudo apt dist-upgrade && sudo apt autoremove'
@@ -94,7 +94,9 @@ function gp {
 
 # Nmcli
 alias nmw='nmcli dev wifi'
-alias nmwl='nmcli dev wifi rescan; nmcli dev wifi list'
+alias nmwl='nmcli dev wifi list'
+alias nmwr='nmcli dev wifi rescan'
+alias nmwrl='nmwr; nmwl'
 alias nmwc='nmcli dev wifi connect'
 alias nmc='nmcli con'
 alias nmcs='nmcli con show'
@@ -171,7 +173,7 @@ function pg {
 ## Connect to cluster
 alias adac='ssh liseli@iccluster040.iccluster.epfl.ch'
 ## Forward port from remote to localhost (port as first argument)
-function adal {
+function adaf {
 	ssh -N -L "$1":localhost:"$1" liseli@iccluster040.iccluster.epfl.ch
 }
 

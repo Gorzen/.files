@@ -13,7 +13,7 @@ xinput set-prop 12 319 1
 # Set delay beofre repeating key, and repeating rate
 xset r rate 350 25
 
-# Set screen blanking timeout (turn off screen and locks screen)
+# Set screen blanking timeout (turns off screen and locks screen)
 xset dpms 300 300 300
 
 # Xresources

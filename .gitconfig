@@ -17,9 +17,12 @@
 	pf = push --force-with-lease
 	sh = show
 	st = status -sb
-	l = log --pretty=format:'%C(yellow)%h %C(blue)%ar %C(green)%aN %C(red)%d %C(reset)%s' --graph --date=relative --decorate --color
-	li = lib --all
-	lib = "log --pretty=tformat:'%C(auto)%h %d %C(#FFFF00 dim)(%ad)%Creset %C(bold #00F3D3)%an%Creset : %s' --shortstat --date=relative --graph --decorate --color"
+	l = "log --pretty=tformat:'%C(auto)%h %d %C(#FFFF00 dim)(%ad)%Creset %C(bold #00F3D3)%an%Creset : %s' --date=relative --decorate --color"
+	lg = l --graph
+	lga = l --graph --all
+	ls = l --shortstat
+	li = l --graph --shortstat
+	lia = li --all
 [core]
 	editor = vim
 	pager = less
