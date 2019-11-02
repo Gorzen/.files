@@ -164,6 +164,9 @@ autocmd filetype python nnoremap <F12> :w<CR>:!python %<CR>
 autocmd filetype scala nnoremap <F12> :w<CR>:!scala -savecompiled %<CR>
 autocmd filetype c nnoremap <F12> :w<CR>:!gcc % -o %:r && ./%:r<CR>
 autocmd filetype cpp nnoremap <F12> :w<CR>:!g++ % -o %:r && ./%:r<CR>
+autocmd filetype zsh nnoremap <F12> :w<CR>:!zsh %<CR>
+autocmd filetype sh nnoremap <F12> :w<CR>:!sh %<CR>
+autocmd filetype bash nnoremap <F12> :w<CR>:!bash %<CR>
 
 " Make
 nnoremap <Leader>M :w<CR>:!make<CR>

@@ -46,6 +46,7 @@ alias vq='vim ~/.config/qutebrowser/config.py'
 ## Personal files
 alias vt='vim ~/Documents/TODO.md'
 alias vc='vim ~/Documents/problems-config.md'
+alias vs='vim ~/Documents/software.md'
 
 # Basic programs
 export LESS="$LESS -F"
