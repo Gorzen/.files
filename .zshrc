@@ -61,6 +61,9 @@ alias update='sudo apt update && sudo apt upgrade && sudo apt dist-upgrade && su
 alias apti='sudo apt install'
 alias aptr='sudo apt remove'
 
+# Firmware update
+alias fwupd='fwupdmgr refresh; fwupdmgr get-updates; fwupdmgr update'
+
 # Pacman
 alias pm='pacman'
 alias spm='sudo pacman'
