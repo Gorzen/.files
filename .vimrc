@@ -159,6 +159,12 @@ nnoremap <Leader>L :w<CR>:!latexmk -cd -pdf %; latexmk -cd -c %<CR>
 " Press enter twice (to return to vim automatically if latexmk runs as expected)
 nmap <Leader>l <Leader>L<CR>
 
+" Run code
+autocmd filetype python nnoremap <F12> :w<CR>:!python %<CR>
+autocmd filetype scala nnoremap <F12> :w<CR>:!scala -savecompiled %<CR>
+autocmd filetype c nnoremap <F12> :w<CR>:!gcc % -o %:r && ./%:r<CR>
+autocmd filetype cpp nnoremap <F12> :w<CR>:!g++ % -o %:r && ./%:r<CR>
+
 " Make
 nnoremap <Leader>M :w<CR>:!make<CR>
 " Press enter twice (to return to vim automatically if make runs as expected)
