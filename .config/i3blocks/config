@@ -12,6 +12,7 @@ signal=10
 [cpu_usage2]
 LABEL=💻
 interval=persist
+min_width=100.00%
 REFRESH_TIME=2
 WARN_PERCENT=50
 CRIT_PERCENT=80
@@ -37,6 +38,10 @@ PRINTF_COMMAND=printf "%.1f/%.1f %s/s\n", rx, wx, unit;
 interval=10
 
 [volume]
+interval=10
+signal=10
+
+[brightness]
 interval=10
 signal=10
 

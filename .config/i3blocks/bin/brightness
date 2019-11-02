@@ -1,0 +1,18 @@
+#!/usr/bin/python
+import os
+
+max_brightness = int(os.popen("cat /sys/class/backlight/intel_backlight/max_brightness").read())
+brightness = int(os.popen("cat /sys/class/backlight/intel_backlight/brightness").read())
+
+percent_brightness = brightness / max_brightness
+
+label = ""
+
+if percent_brightness >= 0.75:
+    label = "☀️"
+elif percent_brightness >= 0.25:
+    label = "🔆"
+else:
+    label ="🔅"
+
+print("%s %.2f%%" % (label, percent_brightness*100))
