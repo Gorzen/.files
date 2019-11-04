@@ -135,13 +135,33 @@ alias brightness='sudo vim /sys/class/backlight/intel_backlight/brightness'
 # Change directories
 alias ff='cd ~/EPFL/MA1'
 alias fst='cd ~/EPFL/BA6/stainless/'
-alias fn='cd ~/EPFL/MA1/NatLang'
-alias fm='cd ~/EPFL/MA1/ML'
-alias fs='cd ~/EPFL/MA1/Stats'
-alias fis='cd ~/EPFL/MA1/InfoSec'
+## Data Analysis
 alias fa='cd ~/EPFL/MA1/Ada'
+alias fac='cd ~/EPFL/MA1/Ada/Course'
+alias fah='cd ~/EPFL/MA1/Ada/Homeworks'
+alias fal='cd ~/EPFL/MA1/Ada/Lectures'
+alias fap='cd ~/EPFL/MA1/Ada/Project'
+## Information Security and Privacy
+alias fii='cd ~/EPFL/MA1/InfoSec'
+alias fie='cd ~/EPFL/MA1/InfoSec/Exercises'
+alias fih='cd ~/EPFL/MA1/InfoSec/Homeworks'
+alias fil='cd ~/EPFL/MA1/InfoSec/Lectures'
+## Machine Learning
+alias fm='cd ~/EPFL/MA1/ML'
+alias fmc='cd ~/EPFL/MA1/ML/Course'
+alias fmh='cd ~/EPFL/MA1/ML/Homeworks'
+alias fmp='cd ~/EPFL/MA1/ML/Projects/Project-02'
+## Natural Language Processing
+alias fn='cd ~/EPFL/MA1/NatLang'
+alias fne='cd ~/EPFL/MA1/NatLang/Exercises'
+alias fnl='cd ~/EPFL/MA1/NatLang/Lectures'
+## SHS
 alias fr='cd ~/EPFL/MA1/SHS'
 alias frc='cd ~/EPFL/MA1/SHS/Conferences'
+## Statistics
+alias fs='cd ~/EPFL/MA1/Stats'
+alias fsd='cd ~/EPFL/MA1/Stats/Davison'
+alias fse='cd ~/EPFL/MA1/Stats/Exercises'
 
 # Open stuff
 alias search='cd $HOME; file_search >> /dev/null; cd - >> /dev/null'
