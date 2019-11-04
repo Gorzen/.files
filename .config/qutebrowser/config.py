@@ -11,6 +11,8 @@ c.url.searchengines = {
 "g": "https://www.google.com/search?q={}",
 "mit": "https://www.google.ch/maps/dir/{}",
 "map": "https://www.google.com/maps/search/{}",
+"ef": "https://dictionary.reverso.net/english-french/{}",
+"fe": "https://dictionary.reverso.net/french-english/{}",
 "tef": "https://translate.google.com/#view=home&op=translate&sl=en&tl=fr&text={}",
 "tfe": "https://translate.google.com/#view=home&op=translate&sl=fr&tl=en&text={}",
 "w": "https://fr.wikipedia.org/wiki/{}",
