@@ -14,13 +14,13 @@ xinput set-prop 12 319 1
 xset r rate 350 25
 
 # Set screen blanking timeout (turns off screen and locks screen)
-xset dpms 300 300 300
+xset dpms 600 600 600
 
 # Xresources
 xrdb ~/.Xresources
 
 # Compositor
-#xcompmgr -c &
+# xcompmgr -c &
 compton -b
 
 # Notification daemon
