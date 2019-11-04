@@ -10,7 +10,7 @@ label = ""
 
 if percent_brightness >= 0.75:
     label = "☀️"
-elif percent_brightness >= 0.25:
+elif percent_brightness > 0.25:
     label = "🔆"
 else:
     label ="🔅"
