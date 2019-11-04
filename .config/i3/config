@@ -246,8 +246,8 @@ bindsym $mod+Shift+s exec --no-startup-id spotify
 bindsym $mod+Print exec --no-startup-id "screenshot -u"
 bindsym $mod+Shift+Print exec --no-startup-id "screenshot"
 
-# Fn+F5 (Num_Lock => lock icon)
-bindcode 77 exec --no-startup-id "lock-screen"
+# F5 (Num_Lock => lock icon)
+bindsym $mod+F5 exec --no-startup-id "lock-screen"
 
 #bindsym $mod+Print exec --no-startup-id import -window root ~/ss.png
 #bindsym $mod+Shift+Print exec import ~/ss.png
