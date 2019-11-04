@@ -7,7 +7,7 @@ i3lock -e --blur=8 --indicator --pass-screen-keys --composite -k \
 	--noinputtext="" \
 	--veriftext="" \
 	--wrongtext="" \
-	--ring-width 8 \
+	--ring-width 7 \
 	--time-font=serif \
 	--date-font=serif \
 	--datesize=16 \
