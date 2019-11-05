@@ -9,6 +9,7 @@ c.spellcheck.languages = ["en-US", "fr-FR"]
 c.url.searchengines = {
 "DEFAULT": "https://duckduckgo.com/?q={}",
 "g": "https://www.google.com/search?q={}",
+"gi": "https://www.google.com/search?tbm=isch&q={}",
 "mit": "https://www.google.ch/maps/dir/{}",
 "map": "https://www.google.com/maps/search/{}",
 "ef": "https://dictionary.reverso.net/english-french/{}",
