@@ -132,8 +132,9 @@ alias night='xbacklight -set 2; redshift -P -O 2500k'
 alias day='redshift -x'
 
 # Change directories
+alias fd='cd ~/.files'
 alias ff='cd ~/EPFL/MA1'
-alias fst='cd ~/EPFL/BA6/stainless/'
+alias fst='cd ~/EPFL/BA6/stainless'
 ## Data Analysis
 alias fa='cd ~/EPFL/MA1/Ada'
 alias fac='cd ~/EPFL/MA1/Ada/Course'
