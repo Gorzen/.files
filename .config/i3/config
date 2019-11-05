@@ -247,7 +247,7 @@ bindsym $mod+Print exec --no-startup-id "screenshot -u"
 bindsym $mod+Shift+Print exec --no-startup-id "screenshot"
 
 # F5 (Num_Lock => lock icon)
-bindsym $mod+F5 exec --no-startup-id "lock-screen"
+bindsym $mod+F5 exec --no-startup-id "xdg-screensaver activate"
 
 #bindsym $mod+Print exec --no-startup-id import -window root ~/ss.png
 #bindsym $mod+Shift+Print exec import ~/ss.png
