@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+i3-msg workspace "Slim preview"
+slim -p /usr/share/slim/themes/lulu
