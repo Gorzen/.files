@@ -128,9 +128,8 @@ alias vpn-epfl='sudo openconnect -b vpn.epfl.ch -u liseli'
 alias vpn-epfl-off='sudo pkill openconnect'
 
 # Light config
-alias night='sudo night-light'
+alias night='xbacklight -set 3; redshift -O 2500k'
 alias day='redshift -x'
-alias brightness='sudo vim /sys/class/backlight/intel_backlight/brightness'
 
 # Change directories
 alias ff='cd ~/EPFL/MA1'

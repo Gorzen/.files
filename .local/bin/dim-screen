@@ -1,0 +1,9 @@
+#!/bin/bash
+BRIGHTNESS=$(xbacklight -get)
+
+trap 'exit 0' TERM INT
+trap "xbacklight -set $BRIGHTNESS; kill %%" EXIT
+xbacklight -set 0
+
+sleep 2147483647 &
+wait

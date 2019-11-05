@@ -16,3 +16,5 @@ i3lock -e --blur=8 --indicator --pass-screen-keys --composite -k \
 	--insidewrongcolor=06060abb \
 	--ringvercolor=cc9814ff \
 	--ringwrongcolor=de351bff
+
+xset dpms force off

@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo "200" > /sys/class/backlight/intel_backlight/brightness
-redshift -O 2500k
