@@ -1,0 +1,24 @@
+#!/bin/scala -savecompiled
+!#
+
+/*
+ * Configuration files that are supposed to be own by the user are in fact symlinks such that everything updates on its own
+ * However, symlinks for system files isn't a very good idea
+ * This script simply updates all tracked system files with the ones in the system
+ */
+import sys.process._
+
+// System directories we want to update
+val SYSTEM_DIRECTORIES = List("usr", "etc")
+
+SYSTEM_DIRECTORIES.foreach(dir => {
+  val local_files = "find %s -type f".format(dir).!!
+                    .split('\n')
+                    .toList
+
+  // The path in the repo is assumed to be the same one as in the system
+  local_files.foreach(file => {
+    "cp /%s %s".format(file, file).!
+  })
+})
+
