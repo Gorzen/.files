@@ -128,7 +128,7 @@ alias vpn-epfl='sudo openconnect -b vpn.epfl.ch -u liseli'
 alias vpn-epfl-off='sudo pkill openconnect'
 
 # Light config
-alias night='xbacklight -set 3; redshift -O 2500k'
+alias night='xbacklight -set 2; redshift -P -O 2500k'
 alias day='redshift -x'
 
 # Change directories
