@@ -9,8 +9,3 @@ export LESS="-R"
 
 # My variables
 export EPFL_DIR="$HOME/EPFL/MA1"
-
-# Start X
-if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
-fi
