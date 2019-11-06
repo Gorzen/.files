@@ -18,6 +18,8 @@ Plugin 'ycm-core/YouCompleteMe'
 " Fzf vim
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+" Align markdown tables
+Plugin 'junegunn/vim-easy-align'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -56,6 +58,9 @@ nnoremap <C-P> :Files<CR>
 " Search in all files from current directory
 nnoremap <Leader>/ :Ag<CR>
 nnoremap <Leader>f :Lines<CR>
+
+" Align GitHub-flavored Markdown tables
+au FileType markdown vnoremap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 
 " Prevent colorscheme from changing background color (opacity)
