@@ -2,17 +2,22 @@
 	name = Lucien Iseli
 	email = lucien.iseli93@gmail.com
 [alias]
+	a = add
+	b = branch
+	ci = commit
+	cl = clone
+	co = checkout
+	d = diff
+	f = fetch
+	h = help
+	m = merge
 	pl = pull
 	ps = push
-	co = checkout
-	ci = commit
+	pf = push --force-with-lease
+	sh = show
 	st = status -sb
-	a = add
-	d = diff
-	h = help
 	l = log --pretty=format:'%C(yellow)%h %C(blue)%ar %C(green)%aN %C(red)%d %C(reset)%s' --graph
-	b = branch
 	li = "log --pretty=tformat:'%C(auto)%h %d %C(#FFFF00 dim)(%ad)%Creset %C(bold #00F3D3)%an%Creset : %s' --all --shortstat --date=relative --graph --decorate --color"
 [core]
 	editor = vim
-	pager = less -F -X
+	pager = less
