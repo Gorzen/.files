@@ -1,0 +1,6 @@
+#!/bin/bash
+
+WALLPAPER=$(cat /home/lulu/.wallpaper)
+WALLPAPER_NAME=${WALLPAPER##*/}
+
+ln -s $WALLPAPER $HOME/.saved-wallpapers/$WALLPAPER_NAME

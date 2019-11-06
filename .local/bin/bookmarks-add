@@ -1,0 +1,78 @@
+#!/bin/bash
+
+regex='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+FOLDER="$HOME/.bookmarks"
+
+ASKNAME="Type what you want to name this URL (Enter for empty string, Esc to go back)"
+
+chose_file() {
+		FILE=$1
+		NAME=$(echo "$ASKNAME" | dmenu -l 40)
+
+		if [[ "$NAME" = "" ]]
+		then
+			return
+		elif [[ "$NAME" = "$ASKNAME" ]]
+		then
+			echo "$URL" >> "$1"
+		else
+			echo "$NAME $URL" >> "$1"
+		fi
+
+		exit 0
+}
+
+URL=$(xclip -selection c -o)
+
+if [[ $URL =~ $regex ]]
+then
+	# Clipboard is url
+	echo "Clipboard contained URL"
+else
+	echo "Clipboard didn't contain URL"
+	#notify-send "Bookmards Add" "Clipboard didn't contain URL: $URL"
+	exit 1
+fi
+
+while [ 1 ]
+do
+	SELECTION=$(ls "$FOLDER" | dmenu -l 40)
+
+	# Didn't choose anything
+	if [[ "$SELECTION" = "" ]]
+	then
+		echo "Didn't choose anything"
+
+		echo $FOLDER
+
+		FOLDER="${FOLDER%/*}"
+
+		echo $FOLDER
+
+		if [[ "$FOLDER" = "$HOME" ]]
+		then
+			exit 0
+		fi
+
+	elif [[ -d $FOLDER/$SELECTION ]]
+	then
+		# Selected folder -> move into the folder
+		echo "Folder"
+		FOLDER="$FOLDER/$SELECTION"
+		echo "$FOLDER"
+
+	elif [[ -f $FOLDER/$SELECTION ]]
+	then
+		# Selected file
+		echo "Url"
+		echo "$SELECTION"
+
+		chose_file "$FOLDER/$SELECTION"
+
+	else
+		touch $FOLDER/$SELECTION
+
+		chose_file "$FOLDER/$SELECTION"
+	fi
+done
+

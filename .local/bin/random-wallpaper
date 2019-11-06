@@ -1,0 +1,11 @@
+#!/bin/bash
+
+while true; do
+	IMAGE=$(find /home/lulu/Images/wallpapers -type f | shuf -n 1)
+	if feh --bg-scale $IMAGE ; then
+		echo $IMAGE > /home/lulu/.wallpaper
+	fi
+
+	sleep 60
+done
+	

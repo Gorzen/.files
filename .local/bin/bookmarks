@@ -1,0 +1,76 @@
+#!/bin/bash
+
+regex='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+FOLDER="$HOME/.bookmarks"
+
+
+while [ 1 ]
+do
+	SELECTION=$(ls "$FOLDER" | dmenu -l 40)
+
+	echo $SELECTION
+
+	# Didn't choose anything
+	if [[ "$SELECTION" = "" ]]
+	then
+		echo "Didn't choose anything"
+
+		echo $FOLDER
+
+		FOLDER="${FOLDER%/*}"
+
+		echo $FOLDER
+
+		if [[ "$FOLDER" = "$HOME" ]]
+		then
+			exit 0
+		fi
+		
+	elif [[ -d $FOLDER/$SELECTION ]]
+	then
+		# Selected folder -> move into the folder
+		echo "Folder"
+		FOLDER="$FOLDER/$SELECTION"
+		echo "$FOLDER"
+
+	elif [[ -f $FOLDER/$SELECTION ]]
+	then
+		# Selected file -> display content of file to choose url
+		echo "Url"
+		echo "$SELECTION"
+
+		URL=$(cat "$FOLDER/$SELECTION" | dmenu -l 40)
+
+		if [[ "$URL" = "" ]]
+		then
+			continue
+		fi
+
+		# Assume URL is either last word or first word
+		FIRSTWORD=$(echo "$URL" | awk '{print $1;}')
+		LASTWORD=$(echo "$URL" | awk '{print $NF;}')
+
+		if [[ $LASTWORD =~ $regex ]]
+		then 
+			echo "Last word is a valid link"
+
+			echo "$LASTWORD" | xclip -selection c
+
+		elif [[ $FIRSTWORD =~ $regex ]]
+		then
+			echo "First word is a valid link"
+
+			echo "$FIRSTWORD" | xclip -selection c
+
+		else
+			echo "Didn't find valid link"
+			notify-send "Bookmarks" "Could not find url insisde line"
+			exit 1
+		fi
+		exit 0
+	else
+		echo "Error"
+		notify-send "Bookmarks" "Could not find file or directory $FOLDER/$SELECTION."
+		exit 1
+	fi
+done

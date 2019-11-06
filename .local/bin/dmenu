@@ -1,0 +1,2 @@
+#!/bin/bash
+/usr/bin/dmenu -i -nb '#191919' -sf '#191919' -sb '#f4800d' -nf '#f4800d' $@

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+kill $(ps -aux | grep "/usr/local/bin/random-wallpaper" | awk '{if (NR ==1) print $2;}')
+random-wallpaper &> /dev/null &

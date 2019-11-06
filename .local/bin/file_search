@@ -1,0 +1,36 @@
+#!/bin/zsh
+
+#cd $HOME
+directory=$(pwd)
+files=$(fzf -m)
+#cd -
+
+pdfs=""
+multiple_pdfs=""
+
+while read -r file; do
+	if ! [ -z "$file" ]; then
+		file="'$file'"
+		file="$directory/$file"
+
+		if [ "$(head -c 4 "$file")" = "%PDF" ]; then
+			if [ -z "$pdfs" ]; then
+				pdfs="$file"
+			else
+				pdfs="$pdfs $file"
+				multiple_pdfs="true"
+			fi
+		else
+			echo "$file"
+			i3-msg exec xdg-open "$file"
+		fi
+	fi
+done <<< "$files"
+
+if ! [ -z "$pdfs" ]; then
+	if [ -z "$multiple_pdfs" ]; then
+		i3-msg exec zathura "$pdfs"
+	else
+		i3-msg exec "tabbed -c zathura "$pdfs" -e"
+	fi
+fi

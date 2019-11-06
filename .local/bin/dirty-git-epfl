@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+while read -r folder; do
+	work_tree="${folder%/*}"
+	cd "$work_tree"
+
+	echo "${work_tree#*/home/lulu/EPFL/}"
+
+	if [ $# -ge 1 ]; then
+		git "$@"
+	fi
+
+	git status -sb
+
+	printf "\n"
+
+done <<< $(find $EPFL_DIR/ -name .git -type d)

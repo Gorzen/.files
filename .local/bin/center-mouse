@@ -1,0 +1,8 @@
+#!/bin/bash
+
+GEOMETRY=$(xdotool getdisplaygeometry)
+
+CENTER_WIDTH=`expr $(echo $GEOMETRY | awk '{print $1}') / 2`
+CENTER_HEIGHT=`expr $(echo $GEOMETRY | awk '{print $2}') / 2`
+
+xdotool mousemove $CENTER_WIDTH $CENTER_HEIGHT
