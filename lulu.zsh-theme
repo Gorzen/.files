@@ -6,7 +6,7 @@ my_prompt=""
 local p_hostname=""
 local red="$fg[red]"
 
-if [[ "$(hostname)" = "lulu-Latitude-7490" ]];
+if [[ "$(hostname)" = "lulu-arch-latitude" ]];
 then
         p_hostname=""
 else
