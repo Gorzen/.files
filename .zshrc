@@ -40,7 +40,6 @@ alias vte='vim ~/.config/termite/config'
 alias vt='vim ~/Documents/TODO.md'
 alias vi='vim ~/.config/i3/config'
 alias vib='vim ~/.config/i3blocks/config'
-alias vibc='vim ~/.local/bin/statusbar/'
 alias rr='source ~/.zshrc'
 alias rx='xrdb ~/.Xresources'
 
@@ -50,6 +49,7 @@ alias less='less -F'
 alias mk='mkdir -p'
 alias ls='ls -v --color=tty'
 alias diff='diff --color=auto'
+alias rm='rm -I'
 
 # Apt
 alias update='sudo apt update && sudo apt upgrade && sudo apt dist-upgrade && sudo apt autoremove'
