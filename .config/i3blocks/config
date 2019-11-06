@@ -1,0 +1,27 @@
+command=~/.config/i3blocks/bin/$BLOCK_NAME
+separator_block_width=15
+markup=pango
+
+#[public-ip]
+#command=echo "$(curl ifconfig.me)"
+#interval=once
+
+# Spotify icon \uF1BC
+[spotify]
+label=🎵 
+color=#81b71a
+interval=2
+
+[internet]
+interval=10
+
+[volume]
+signal=10
+interval=10
+
+[battery]
+interval=10
+
+[clock]
+interval=10
+
