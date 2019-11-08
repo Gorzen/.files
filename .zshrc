@@ -138,9 +138,11 @@ alias fst='cd ~/EPFL/BA6/stainless'
 ## Data Analysis
 alias fa='cd ~/EPFL/MA1/Ada'
 alias fac='cd ~/EPFL/MA1/Ada/Course'
-alias fah='cd ~/EPFL/MA1/Ada/Homeworks'
+alias fah='cd ~/EPFL/MA1/Ada/Homeworks/Homework-02'
 alias fal='cd ~/EPFL/MA1/Ada/Lectures'
 alias fap='cd ~/EPFL/MA1/Ada/Project'
+alias faq='cd ~/EPFL/MA1/Ada/Quizzes'
+alias fat='cd ~/EPFL/MA1/Ada/Tutorials'
 ## Information Security and Privacy
 alias fii='cd ~/EPFL/MA1/InfoSec'
 alias fie='cd ~/EPFL/MA1/InfoSec/Exercises'
