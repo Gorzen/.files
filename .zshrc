@@ -77,10 +77,12 @@ alias spmu='sudo pacman -Syu'
 alias ra='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias ran='ranger' 
 
-# Monitors setup - xrandr
-## Enable second monitor
+# X server
+alias mouse-nat-scroll='xinput --set-prop "Logitech Gaming Mouse G502" "libinput Natural Scrolling Enabled" 0'
+## Monitors setup - xrandr
+### Enable second monitor
 alias dual-monitor='xrandr --output HDMI1 --auto --left-of eDP1'
-## Refresh xrandr, i.e. after unplugging HDMI for example, to disable second monitor
+### Refresh xrandr, i.e. after unplugging HDMI for example, to disable second monitor
 alias refresh-monitor='xrandr --auto'
 
 # Git
