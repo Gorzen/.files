@@ -1,5 +1,5 @@
-# Switch caps-lock and escape keys
-caps
+# Remap keys
+remap-keys
 
 # Set delay beofre repeating key, and repeating rate
 xset r rate 350 25

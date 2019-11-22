@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Remap caps to escape
+setxkbmap -option caps:escape
+# Map escape to caps
+xmodmap -e "keycode 9 = Caps_Lock"
+
+# Map ü to ~
+xmodmap -e "keycode  34 = egrave asciitilde egrave asciitilde bracketleft dead_abovering bracketleft"
+# Map ~ to ü
+xmodmap -e "keycode  21 = dead_circumflex dead_grave dead_circumflex dead_grave udiaeresis dead_ogonek udiaeresis"
+
+# Map ö to /
+xmodmap -e "keycode  47 = eacute slash eacute slash dead_acute dead_doubleacute dead_acute"
+# Map ä to |
+xmodmap -e "keycode  48 = agrave bar agrave bar braceleft dead_caron braceleft"
+# Map / to ö and | to ä
+xmodmap -e "keycode  16 = 7 odiaeresis 7 odiaeresis adiaeresis seveneighths adiaeresis"
+
