@@ -117,11 +117,7 @@ alias pip-update="pip list --outdated | awk '{if (NR!=1 && NR!=2) {print $1;}}' 
 alias jptl='jupyter lab &> /dev/null'
 
 # Virtual env
-alias venv='source .venv/bin/activate'
-alias venva='source $HOME/EPFL/MA1/Ada/.venv/bin/activate'
-alias venvm='source $HOME/EPFL/MA1/ML/.venv/bin/activate'
-alias venvi='source $HOME/EPFL/MA1/InfoSec/.venv/bin/activate'
-alias venvn='source $HOME/EPFL/MA1/NatLang/.venv/bin/activate'
+alias venv='source $HOME/.venv/bin/activate'
 
 # Network
 alias public-ip='curl ifconfig.me/ip; printf "\n"'
