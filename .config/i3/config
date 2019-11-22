@@ -179,7 +179,7 @@ bindsym $mod+o mode "resize"
 # finds out, if available)
 bar {
 		status_command	i3blocks
-		position				bottom
+		position				top
 	
 	colors { 
     background #1b1b1c
