@@ -13,7 +13,7 @@ xss-lock -l -n dim-screen -- lock-screen &
 xrdb ~/.Xresources
 
 # Compositor
-compton -b
+picom -b
 
 # Notification daemon
 dunst &
