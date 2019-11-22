@@ -78,7 +78,7 @@ alias ran='ranger'
 
 # Monitors setup - xrandr
 ## Enable second monitor
-alias dual-monitor='xrandr --output HDMI-1 --auto --left-of eDP-1'
+alias dual-monitor='xrandr --output HDMI1 --auto --left-of eDP1'
 ## Refresh xrandr, i.e. after unplugging HDMI for example, to disable second monitor
 alias refresh-monitor='xrandr --auto'
 
@@ -177,7 +177,7 @@ function o {
 
 # Do stuff and detach it from terminal
 function doo {
-	$@ &> /dev/null & disown
+	$@ &> /dev/null &|
 }
 
 # Zathura tab
