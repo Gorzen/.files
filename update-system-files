@@ -8,23 +8,33 @@
  */
 import sys.process._
 
-// System directories we want to update
-val SYSTEM_DIRECTORIES = List("usr", "etc")
-val UNLINKABLE_FILES = List(".config/mimeapps.list")
-val HOME = sys.env("HOME")
+object Main {
+  def main(args: Array[String]): Unit = {
+    val verbose = args.contains("-v")
 
-SYSTEM_DIRECTORIES.foreach(dir => {
-  val local_files = "find %s -type f".format(dir).!!
-                    .split('\n')
-                    .toList
+    // System directories we want to update
+    val SYSTEM_DIRECTORIES = List("usr", "etc")
+    val UNLINKABLE_FILES = List(".config/mimeapps.list")
+    val HOME = sys.env("HOME")
 
-  // The path in the repo is assumed to be the same one as in the system
-  local_files.foreach(file => {
-    "cp /%s %s".format(file, file).!
-  })
-})
+    SYSTEM_DIRECTORIES.foreach(dir => {
+      val local_files = "find %s -type f".format(dir).!!
+                        .split('\n')
+                        .toList
 
-UNLINKABLE_FILES.foreach(file => {
-  "cp %s/%s %s".format(HOME, file, file).!
-})
+      // The path in the repo is assumed to be the same one as in the system
+      local_files.foreach(file => {
+        val command = "cp /%s %s".format(file, file)
+        if (verbose) println(command)
+        command.!
+      })
+    })
+
+    UNLINKABLE_FILES.foreach(file => {
+      val command = "cp %s/%s %s".format(HOME, file, file)
+      if (verbose) println(command)
+      command.!
+    })
+  }
+}
 
