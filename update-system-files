@@ -10,6 +10,8 @@ import sys.process._
 
 // System directories we want to update
 val SYSTEM_DIRECTORIES = List("usr", "etc")
+val UNLINKABLE_FILES = List(".config/mimeapps.list")
+val HOME = sys.env("HOME")
 
 SYSTEM_DIRECTORIES.foreach(dir => {
   val local_files = "find %s -type f".format(dir).!!
@@ -20,5 +22,9 @@ SYSTEM_DIRECTORIES.foreach(dir => {
   local_files.foreach(file => {
     "cp /%s %s".format(file, file).!
   })
+})
+
+UNLINKABLE_FILES.foreach(file => {
+  "cp %s/%s %s".format(HOME, file, file).!
 })
 
