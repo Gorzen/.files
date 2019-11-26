@@ -1,4 +1,4 @@
 #!/bin/zsh
 
-i3-msg workspace "Slim preview"
-slim -p /usr/share/slim/themes/lulu
+i3-msg workspace "Slim preview" &> /dev/null
+slim -p /usr/share/slim/themes/lulu &|
