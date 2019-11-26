@@ -90,13 +90,11 @@ alias g='git'
 alias gnp='git --no-pager'
 alias dg='dirty-git-epfl'
 alias dgf='dg fetch -q'
+## Change pager for one command (less -X) don't clear less when quitting but can't scroll
+alias gp='git -c core.pager="less -X"'
 ## Quickly add, commit and push
 function gc {
 	git add .; git commit -m "$@"; git push
-}
-## Change pager for one command (less -X) don't clear less when quitting but can't scroll
-function gp {
-	git config --global core.pager "less -X"; git "$@"; git config --global core.pager "less"
 }
 
 # Nmcli
