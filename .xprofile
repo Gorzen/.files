@@ -1,3 +1,7 @@
+# Lightdm runs xprofile at boot
+# Source .zprofile to update environment variables
+source ~/.zprofile
+
 # Remap keys
 remap-keys
 
@@ -22,5 +26,3 @@ dunst &
 ~/.fehbg &
 random-wallpaper &
 
-# Start i3
-exec i3
