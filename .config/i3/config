@@ -232,7 +232,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 5; pkill -SIGR
 bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5; pkill -SIGRTMIN+10 i3blocks"
 
 # Shortcuts applications
-bindsym $mod+q exec qutebrowser
+bindsym $mod+q exec firefox
 bindsym $mod+p exec --no-startup-id center-mouse; exec --no-startup-id "passmenu; i3-msg 'workspace back_and_forth'; i3-msg 'workspace back_and_forth'"
 bindsym $mod+b exec --no-startup-id "bookmarks; i3-msg 'workspace back_and_forth'; i3-msg 'workspace back_and_forth'"
 bindsym $mod+Shift+b exec --no-startup-id "bookmarks-add; i3-msg 'workspace back_and_forth'; i3-msg 'workspace back_and_forth'"
