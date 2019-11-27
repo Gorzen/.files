@@ -1,20 +1,107 @@
-#!/bin/zsh
+#!/usr/bin/python
 
-while read -r folder; do
-	work_tree="${folder%/*}"
-	cd "$work_tree"
+import os
+import subprocess
+import multiprocessing
 
-	echo "${work_tree#*/home/lulu/EPFL/}"
 
-	if [ $# -ge 1 ]; then
-		git "$@"
-	fi
+def run_command(cmd, cwd="."):
+    stdout, _ = subprocess.Popen(
+        cmd.split(" "), stdout=subprocess.PIPE, stderr=subprocess.STDOUT, cwd=cwd
+    ).communicate()
 
-	# Show local branches with verbose to see if they are behind or ahead of remote
-	git branch -vv
-	# Show status of current branch to see if current working directory is dirty
-	git status -sb
+    return stdout.decode("utf-8")
 
-	printf "\n"
 
-done <<< $(find $EPFL_DIR/ -name .git -type d)
+def get_repos():
+    epfl_dir = os.environ["EPFL_DIR"]
+    # Find repos
+    repos = run_command(f"find {epfl_dir} -name .git -type d")
+    # Get list of repos
+    repos = repos.split("\n")
+    # Remove "/.git" from repo path
+    repos = ["/".join(repo.split("/")[:-1]) for repo in repos]
+    # Filter not-directory repos, for example empty string, and unwanted repos
+    return filter_repos(repos)
+
+
+def filter_repos(repos, filter_list=[]):
+    repos = list(filter(None, repos))
+
+    for repo in repos:
+        if not os.path.isdir(repo):
+            print(f"Warning: '{repo}' is not a directory, discarding")
+            repos.remove(repo)
+
+    return [repo for repo in repos if repo not in filter_list]
+
+
+def fetch_repos(repos):
+    jobs = []
+    for repo in repos:
+        process = multiprocessing.Process(target=run_command, args=("git fetch", repo))
+        jobs.append(process)
+
+    # Start the threads (i.e. calculate the random number lists)
+    for j in jobs:
+        j.start()
+
+    # Ensure all of the threads have finished
+    printProgressBar(0, len(jobs))
+    for i, j in enumerate(jobs):
+        j.join()
+        printProgressBar(i + 1, len(jobs))
+
+
+# Print iterations progress
+def printProgressBar(iteration, total, length=100, fill="█"):
+    """
+    Call in a loop to create terminal progress bar
+    @params:
+        iteration   - Required  : current iteration (Int)
+        total       - Required  : total iterations (Int)
+        length      - Optional  : character length of bar (Int)
+        fill        - Optional  : bar fill character (Str)
+    """
+    percent = "%.1f" % (100 * iteration / float(total))
+    filledLength = int(length * iteration // total)
+    bar = fill * filledLength + "-" * (length - filledLength)
+    print("\rProgress: |%s| %s%% Complete" % (bar, percent), end="\r")
+    # Print New Line on Complete
+    if iteration == total:
+        print()
+
+
+def print_dirty_repos(repos):
+    # Longest repo string length
+    max_length = len(max(repos, key=len))
+    dirty = False
+
+    for repo in repos:
+        git_branch = run_command("git branch -vv --color=always", cwd=repo)
+        git_status = run_command("git -c color.status=always status -sb", repo)
+
+        dirty_status = git_status.count("\n") > 1
+        dirty_branch = "behind" in git_branch or "ahead" in git_branch
+        dirty_repo = dirty_status or dirty_branch
+        dirty = dirty or dirty_repo
+
+        if dirty_repo:
+            repo_short_name = "/".join(repo.split("/")[4:])
+            print(repo_short_name)
+
+        if dirty_branch:
+            print(git_branch)
+
+        if dirty_status:
+            print(git_status)
+
+    if not dirty:
+        print("All clean!")
+
+
+if __name__ == "__main__":
+    repos = get_repos()
+    fetch_repos(repos)
+    print_dirty_repos(repos)
+
