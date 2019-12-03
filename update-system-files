@@ -13,7 +13,7 @@ object Main {
     val verbose = args.contains("-v")
 
     // System directories we want to update
-    val SYSTEM_DIRECTORIES = List("usr", "etc")
+    val SYSTEM_DIRECTORIES = List("etc")
     val UNLINKABLE_FILES = List(".config/mimeapps.list")
     val HOME = sys.env("HOME")
 
