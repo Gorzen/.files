@@ -1,2 +1,9 @@
 #!/bin/bash
-/usr/bin/dmenu -i -nb '#191919' -sf '#191919' -sb '#f4800d' -nf '#f4800d' $@
+win_id=$(xdotool getactivewindow)
+
+dmenu_out=$(/usr/bin/dmenu -i -nb '#191919' -sf '#191919' -sb '#f4800d' -nf '#f4800d' $@)
+
+i3-msg focus parent &> /dev/null
+i3-msg "[id=$win_id] focus" &> /dev/null
+
+printf "%s" "$dmenu_out"

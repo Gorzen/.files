@@ -206,9 +206,9 @@ bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5; pkill -SI
 
 # Shortcuts applications
 bindsym $mod+q exec firefox
-bindsym $mod+p exec --no-startup-id center-mouse; exec --no-startup-id "passmenu; i3-msg 'workspace back_and_forth'; i3-msg 'workspace back_and_forth'"
-bindsym $mod+b exec --no-startup-id "bookmarks; i3-msg 'workspace back_and_forth'; i3-msg 'workspace back_and_forth'"
-bindsym $mod+Shift+b exec --no-startup-id "bookmarks-add; i3-msg 'workspace back_and_forth'; i3-msg 'workspace back_and_forth'"
+bindsym $mod+p exec --no-startup-id center-mouse; exec --no-startup-id passmenu
+bindsym $mod+b exec --no-startup-id bookmarks
+bindsym $mod+Shift+b exec --no-startup-id bookmarks-add
 bindsym $mod+Shift+s exec --no-startup-id spotify
 
 # Screenshots
