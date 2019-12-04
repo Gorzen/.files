@@ -1,7 +1,7 @@
 #!/bin/bash
 win_id=$(xdotool getactivewindow)
 
-dmenu_out=$(/usr/bin/dmenu -i -nb '#191919' -sf '#191919' -sb '#f4800d' -nf '#f4800d' $@)
+dmenu_out=$(/usr/bin/dmenu -i -sf '^r@V>ttc^' -sb '^r@V^' -nf '^r@V^' -nb '^r@DM>l(15)^' $@)
 
 i3-msg focus parent &> /dev/null
 i3-msg "[id=$win_id] focus" &> /dev/null

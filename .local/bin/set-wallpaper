@@ -27,6 +27,10 @@ ln -sf "$image" /home/lulu/.my-wallpaper
 
 # Change i3 colors
 $ricemood -i $HOME/.my-wallpaper -f $HOME/.config/i3/actual_config > $HOME/.config/i3/config
+# Change dmenu colors
+$ricemood -i $HOME/.my-wallpaper -f $HOME/.local/bin/dmenu.color > $HOME/.local/bin/dmenu
+# Change i3lock colors
+$ricemood -i $HOME/.my-wallpaper -f $HOME/.local/bin/lock-screen.color > /home/lulu/.local/bin/lock-screen
 
 wal -i "$image"
 echo "$image" > /home/lulu/.wallpaper

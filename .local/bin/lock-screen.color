@@ -2,8 +2,8 @@
 
 i3lock -e --blur=8 --indicator --pass-screen-keys --composite -k \
 	--datestr="%A, %d %b %Y" \
-	--datecolor=ffffffff \
-	--timecolor=ffffffff \
+	--datecolor=^r@LV^ff \
+	--timecolor=^r@LV^ff \
 	--noinputtext="" \
 	--veriftext="" \
 	--wrongtext="" \
@@ -11,9 +11,11 @@ i3lock -e --blur=8 --indicator --pass-screen-keys --composite -k \
 	--time-font=serif \
 	--date-font=serif \
 	--datesize=16 \
-	--insidecolor=06060abb \
-	--insidevercolor=06060abb \
-	--insidewrongcolor=06060abb \
+	--insidecolor=^r@DM>l(15)^bb \
+	--insidevercolor=^r@DM>l(15)^bb \
+	--insidewrongcolor=^r@DM>l(15)^bb \
+	--keyhlcolor=^r@LV^ff \
+	--ringcolor=^r@V^ff \
 	--ringvercolor=cc9814ff \
 	--ringwrongcolor=de351bff
 
