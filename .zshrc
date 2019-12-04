@@ -71,6 +71,10 @@ alias spmu='sudo pacman -Syu'
 # Firmware update
 alias fwupd='fwupdmgr refresh; fwupdmgr get-updates; fwupdmgr update'
 
+# Manually installed packages
+alias cordless="$HOME/.manual/cordless/cordless"
+alias ricemood="$HOME/.manual/ricemood/dist/bin/ricemood.js"
+
 # Ranger
 alias ra='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias ran='ranger' 
