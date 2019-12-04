@@ -1,3 +1,4 @@
+# ZSH
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="lulu"
@@ -58,14 +59,7 @@ alias diff='diff --color=auto'
 alias rm='rm -I'
 alias tre='tree -a -I ".git|venv|.venv|*.class|__pycache__|.idea|.ipynb_checkpoints"'
 alias nt='doo termite'
-
-# Apt
-alias update='sudo apt update && sudo apt upgrade && sudo apt dist-upgrade && sudo apt autoremove'
-alias apti='sudo apt install'
-alias aptr='sudo apt remove'
-
-# Firmware update
-alias fwupd='fwupdmgr refresh; fwupdmgr get-updates; fwupdmgr update'
+alias clear='clear && printf "\e[3J"' # Delete scrollback lines, instead of simply padding newlines
 
 # Pacman
 alias pm='pacman'
@@ -73,6 +67,9 @@ alias spm='sudo pacman'
 alias spms='sudo pacman -S'
 alias spmr='sudo pacman -Rns'
 alias spmu='sudo pacman -Syu'
+
+# Firmware update
+alias fwupd='fwupdmgr refresh; fwupdmgr get-updates; fwupdmgr update'
 
 # Ranger
 alias ra='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
