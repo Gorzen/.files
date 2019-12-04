@@ -33,8 +33,9 @@ bindkey '^[OD' beep # 'Disable' right arrow
 
 # Config
 ## Reload config
-alias rr='source ~/.zshrc'
+alias rz='source ~/.zshrc'
 alias rx='xrdb ~/.Xresources'
+alias rc='reload-color'
 ## Edit config
 alias vz='vim ~/.zshrc'
 alias vp='vim ~/.zprofile'
