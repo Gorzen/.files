@@ -1,0 +1,33 @@
+#!/bin/zsh
+
+if [ "$#" -ne 1 ]; then
+	echo "Illegal number of parameters"
+	exit 1
+fi
+
+if [ ! -f "$1" ]; then
+	echo "Not a file"
+	exit 1
+fi
+
+image="$1"
+
+# Check if path is relative
+if ! { [ "${image:0:1}" = "/" ] || [ "${image:0:1}" = "~" ]; }; then
+	if [ -f "$(pwd)/$image" ]; then
+		image="$(pwd)/$image"
+	else
+		echo "Can't find absolute path of file"
+		exit 1
+	fi
+fi
+
+ricemood="$HOME/.manual/ricemood/dist/bin/ricemood.js"
+ln -sf "$image" /home/lulu/.my-wallpaper
+
+# Change i3 colors
+$ricemood -i $HOME/.my-wallpaper -f $HOME/.config/i3/actual_config > $HOME/.config/i3/config
+
+wal -i "$image"
+echo "$image" > /home/lulu/.wallpaper
+

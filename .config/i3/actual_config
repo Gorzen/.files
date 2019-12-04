@@ -148,22 +148,6 @@ mode "resize" {
 
 bindsym $mod+o mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-		status_command	i3blocks
-		position				top
-	
-	colors { 
-    background #1b1b1c
-    separator  #aaaaaa
-
-		# Colors
-		# class            border  backgr. text
-    focused_workspace  #1b1b1c #9c5211 #ffffff
-    inactive_workspace #555555 #1b1b1c #aaaaaa
-	}
-}
 
 # Gaps
 for_window [class=".*"] border pixel 3
@@ -226,11 +210,37 @@ bindsym $mod+Tab workspace back_and_forth
 # Invert colors
 bindsym $mod+Shift+x exec --no-startup-id "xcalib -invert -alter"
 
-# Colors
-# class                 border  backgr. text    indicator child_border
-client.focused          #c2640c #c2640c #000000 #e32424   #c2640c
-client.focused_inactive #333333 #5f676a #ffffff #756f67   #756f67
-client.unfocused        #333333 #222222 #888888 #2922de   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# class                  border        background    text              indicator  child_border
+client.focused           ^r@V^         ^r@V^         ^r@V>ttc^         ^r@LV^     ^r@V^
+client.focused_inactive  ^r@DM>l(15)^  ^r@DM>l(15)^  ^r@DM>l(15)>ttc^  ^r@DV^     ^r@DM^
+client.unfocused         ^r@DM>l(15)^  ^r@DM>l(15)^  ^r@V^             ^r@DV^     ^r@DM^
+client.urgent            ^r@LV^        ^r@DM>l(15)^  ^r@DM>l(15)>ttc^  ^r@DV^     ^r@LV^
+client.placeholder       ^r@DM>l(15)^  ^r@DM>l(15)^  ^r@DM>l(15)>ttc^  ^r@DV^     ^r@DM^
 
-client.background       #ffffff
+client.background        ^r@V^
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+	status_command	i3blocks
+	position				top
+	tray_output primary
+	#font pango: FontAwesome 11.3
+	font pango: monospace 11.3
+	#font pango:monospace 11.3 pango:Ionicons 11.3
+
+  colors {
+    background ^r@DM>l(15)^
+    #statusline ^r@LM^
+    statusline ^r@LV^
+    #separator ^r@DM^
+    separator  ^r@V^
+
+		# class						  border        background    text
+    focused_workspace   ^r@V^         ^r@V^         ^r@V>ttc^
+    active_workspace    ^r@DM>l(15)^  ^r@DM>l(15)^  ^r@V^
+    inactive_workspace  ^r@DM>l(15)^  ^r@DM>l(15)^  ^r@LV^
+    urgent_workspace    ^r@DM>l(15)^  ^r@LV^        ^r@LV>ttc^
+    binding_mode        ^r@DM>l(15)^  ^r@LV^        ^r@LV>ttc^
+  }
+}

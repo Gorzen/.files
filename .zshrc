@@ -7,10 +7,13 @@ plugins=(zsh-autosuggestions
 				 colored-man-pages
 				 z
 				 zsh-syntax-highlighting
+				 colorize
 				)
 
 source $ZSH/oh-my-zsh.sh
 
+# Colors from pywal
+(cat ~/.cache/wal/sequences &)
 # LS Colors
 eval $(dircolors -b $HOME/.dircolors)
 
@@ -42,7 +45,7 @@ alias vxr='vim ~/.Xresources'
 alias vr='vim ~/.config/ranger/rc.conf'
 alias vrr='vim ~/.config/ranger/rifle.conf'
 alias vte='vim ~/.config/termite/config'
-alias vi='vim ~/.config/i3/config'
+alias vi='vim ~/.config/i3/actual_config'
 alias vib='vim ~/.config/i3blocks/config'
 alias vq='vim ~/.config/qutebrowser/config.py'
 ## Personal files
