@@ -109,17 +109,18 @@ alias nmc='nmcli con'
 alias nmcs='nmcli con show'
 alias nmcu='nmcli con up'
 
-# Pip
+# Python
+alias py='python'
+## Pip
 alias pi='pip install'
 alias pu='pip uninstall'
 alias pl='pip list'
 alias pip-update="pip list --outdated | awk '{if (NR!=1 && NR!=2) {print $1;}}' | xargs -n1 pip install -U"
-
-# Jupyter
+## Jupyter
 alias jptl='jupyter lab &> /dev/null'
-
-# Virtual env
+## Virtual env
 alias venv='source $HOME/.venv/bin/activate'
+alias venv3='source $HOME/.venv-3.7.0/bin/activate'
 
 # Network
 alias public-ip='curl ifconfig.me/ip; printf "\n"'
