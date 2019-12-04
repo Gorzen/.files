@@ -8,11 +8,9 @@ brightness = float(subprocess.Popen(
 
 label = ""
 
-if brightness >= 75:
-    label = "☀️"
-elif brightness > 25:
-    label = "🔆"
+if brightness >= 20:
+    label = ""
 else:
-    label ="🔅"
+    label =""
 
 print("%s %.2f%%" % (label, brightness))

@@ -14,19 +14,26 @@ esac
 capacity=$(cat /sys/class/power_supply/BAT0/capacity) || exit
 status=$(cat /sys/class/power_supply/BAT0/status)
 
-if [ "$capacity" -ge 75 ]; then
-	color="#00ff00"
-elif [ "$capacity" -ge 50 ]; then
-	color="#ffffff"
-elif [ "$capacity" -ge 25 ]; then
-	color="#ffff00"
+status_emoji="$(echo "$status" | sed -e "s/,//;s/Discharging//;s/Not Charging//;s/Charging//;s/Unknown//;s/Full//;s/ 0*/ /g;s/ :/ /g")"
+capacity_percent="$capacity%"
+
+capacity_emoji=""
+
+if [ "$capacity" -ge 90 ]; then
+	capacity_emoji=""
+elif [ "$capacity" -ge 65 ]; then
+	capacity_emoji=""
+elif [ "$capacity" -ge 40 ]; then
+	capacity_emoji=""
+elif [ "$capacity" -ge 10 ]; then
+	capacity_emoji=""
 else
-	color="#ff0000"
-	warn="❗"
+	capacity_emoji=""
 fi
 
-[ -z $warn ] && warn=" "
+if [ "$capacity" -ge 20 ] || [ "$status" = "Charging" ]; then
+	printf "%s %s %s\n" "$status_emoji" "$capacity_emoji" "$capacity_percent"
+else
+	printf "<span color='#ff0000'>%s %s  %s</span>\n" "$status_emoji" "$capacity_emoji" "$capacity_percent"
+fi
 
-[ "$status" = "Charging" ] && color="#ffffff"
-
-printf "<span color='%s'>%s%s%s</span>\n" "$color" "$(echo "$status" | sed -e "s/,//;s/Discharging/🔋/;s/Not Charging/🛑/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"

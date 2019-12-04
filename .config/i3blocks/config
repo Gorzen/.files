@@ -3,14 +3,13 @@ separator_block_width=15
 markup=pango
 
 [mediaplayer]
-label=🎵 
+label= 
 interval=5
 instance=spotify
-color=#81b71a
 signal=10
 
 [cpu_usage2]
-LABEL=💻
+LABEL=
 interval=persist
 min_width=100.00%
 REFRESH_TIME=2
@@ -19,13 +18,10 @@ CRIT_PERCENT=80
 DECIMALS=2
 
 [temperature]
-label=🌡
 interval=10
-T_WARN=70
-T_CRIT=90
 
 [memory]
-label=💽 
+label= 
 interval=10
 
 [bandwidth]
@@ -34,16 +30,16 @@ interval=persist
 UNIT=KB
 PRINTF_COMMAND=printf "%.1f/%.1f %s/s\n", rx, wx, unit;
 
-[internet]
+[brightness]
 interval=10
+signal=10
 
 [volume]
 interval=10
 signal=10
 
-[brightness]
+[internet]
 interval=10
-signal=10
 
 [battery]
 interval=10
