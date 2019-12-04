@@ -203,3 +203,8 @@ endfunction
 function Talk()
 	nnoremap <Space><Space> /^# <Enter>
 endfunction
+
+" Update installed packages, add the description of package in markdown table
+function InstalledPackages()
+	nnoremap <Leader>b 0wvt<Space>y:exe ":r ! pacman -Qi <C-r>0 \| awk 'NR==3'"<CR>0d2wkJF\|T\|df\|A<Space>\|<Esc>j
+endfunction
