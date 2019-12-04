@@ -83,13 +83,14 @@ alias ran='ranger'
 alias mouse-nat-scroll='xinput --set-prop "Logitech Gaming Mouse G502" "libinput Natural Scrolling Enabled" 0'
 ## Monitors setup - xrandr
 ### Enable second monitor
-alias dual-monitor='xrandr --output HDMI1 --auto --left-of eDP1'
+alias dual-monitor='xrandr --output HDMI1 --auto --left-of eDP1; ~/.fehbg'
 ### Refresh xrandr, i.e. after unplugging HDMI for example, to disable second monitor
-alias refresh-monitor='xrandr --auto'
+alias refresh-monitor='xrandr --auto; ~/.fehbg'
 
 # Git
 alias g='git'
 alias gnp='git --no-pager'
+alias gfixup='git add .; git commit -m "fixup"; git rebase -i HEAD~~'
 alias dg='dirty-git-epfl'
 ## Change pager for one command (less -X) don't clear less when quitting but can't scroll
 alias gp='git -c core.pager="less -X"'
