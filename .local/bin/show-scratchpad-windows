@@ -1,0 +1,11 @@
+#!/usr/bin/python
+import i3ipc
+import re
+
+i3 = i3ipc.Connection()
+dropdown_windows = re.compile("^dropdown_*")
+
+for leaf in i3.get_tree().scratchpad().leaves():
+    if not dropdown_windows.match(leaf.window_instance):
+        i3.command(f"[con_id={leaf.id}] scratchpad show")
+
