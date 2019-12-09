@@ -2,6 +2,9 @@
 # Source .zprofile to update environment variables
 source ~/.zprofile
 
+# Scale fonts, wallpaper and enable monitors if any
+check-monitors firefox
+
 # Remap keys
 remap-keys
 
@@ -21,7 +24,3 @@ picom -b
 
 # Notification daemon
 dunst &
-
-# Wallpaper
-~/.fehbg &
-
