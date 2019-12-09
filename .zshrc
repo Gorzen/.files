@@ -90,6 +90,8 @@ alias mouse-nat-scroll='xinput --set-prop "Logitech Gaming Mouse G502" "libinput
 alias dual-monitor='xrandr --output HDMI1 --auto --left-of eDP1; ~/.fehbg'
 ### Refresh xrandr, i.e. after unplugging HDMI for example, to disable second monitor
 alias refresh-monitor='xrandr --auto; ~/.fehbg'
+alias quit-i3='i3-msg exit'
+alias wininfo="xprop WM_CLASS | grep -o '\"[^\"]*\"' | head -n 1"
 
 # Git
 alias g='git'
@@ -145,6 +147,7 @@ alias gac='cd ~/EPFL/MA1/Ada/Course'
 alias gah='cd ~/EPFL/MA1/Ada/Homeworks/Homework-02'
 alias gal='cd ~/EPFL/MA1/Ada/Lectures'
 alias gap='cd ~/EPFL/MA1/Ada/Project'
+alias gapd='cd ~/EPFL/MA1/Ada/Project/Data-Story'
 alias gaq='cd ~/EPFL/MA1/Ada/Quizzes'
 alias gat='cd ~/EPFL/MA1/Ada/Tutorials'
 ## Information Security and Privacy
