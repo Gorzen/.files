@@ -3,7 +3,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 11.2
+font pango:sans-serif 11.5
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -68,9 +68,8 @@ bindsym $mod+i exec --no-startup-id "show-scratchpad-windows"
 
 # focus the parent container
 bindsym $mod+a focus parent
-
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+a focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -78,7 +77,7 @@ set $ws1 "1 Work "
 set $ws2 "2 Browser "
 set $ws3 "3 Doc "
 set $ws4 "4 Ressources "
-set $ws5 "5"
+set $ws5 "5 Laptop "
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8 Helper "
@@ -209,6 +208,9 @@ bindsym $mod+Tab workspace back_and_forth
 
 # Invert colors
 bindsym $mod+Shift+x exec --no-startup-id "xcalib -invert -alter"
+
+# YouTube
+bindsym --release $mod+y exec --no-startup-id "xdotool key ctrl+l ctrl+c F6; sleep 0.15; youtube-viewer $(xclip -selection c -o)"
 
 # class                  border        background    text              indicator  child_border
 client.focused           ^r@V^         ^r@V^         ^r@V>ttc^         ^r@LV^     ^r@V^
