@@ -1,3 +1,4 @@
 set selection-clipboard clipboard
 set guioptions none
+set first-page-column 1:1
 map p toggle_statusbar
