@@ -1,2 +1,9 @@
 #!/bin/zsh
-spotify --force-device-scale-factor=1.25
+
+fontscale=$(cat $HOME/.fontscale)
+
+if [ "$fontscale" = "1.0" ]; then
+  spotify
+else
+  spotify --force-device-scale-factor=$fontscale
+fi
