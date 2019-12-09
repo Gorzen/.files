@@ -83,6 +83,7 @@ nnoremap <Leader>Q :hi Normal ctermbg=None<CR>:hi NonText ctermbg=None<CR>
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+set expandtab
 
 set showcmd " show command currently typed
 set number " show line number
