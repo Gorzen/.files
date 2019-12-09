@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+pkill picom
+i3-msg restart
+picom -b
