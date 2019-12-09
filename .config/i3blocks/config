@@ -2,7 +2,7 @@ command=~/.config/i3blocks/bin/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-[mediaplayer]
+[spotify]
 label= 
 interval=5
 instance=spotify
