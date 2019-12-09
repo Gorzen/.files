@@ -1,0 +1,44 @@
+#!/bin/zsh
+
+# Refresh xrandr
+xrandr --auto
+~/.fehbg
+
+# Kill imwheel if it were running
+pkill imwheel
+
+if [ "$(xrandr | grep "HDMI1 connected")" ]; then
+  # Multiple monitors
+  fontscale="1.3"
+  patch="$HOME/.config/fontconfig/bigger-fonts.diff"
+
+  # Dual monitor
+	xrandr --output HDMI1 --auto --left-of eDP1
+	~/.fehbg
+
+  # Mouse natural scrolling
+  xinput --set-prop "Logitech Gaming Mouse G502" "libinput Natural Scrolling Enabled" 0
+
+  # Increase scroll step
+  imwheel
+else
+  # Single monitor
+  fontscale="1.0"
+  patch="$HOME/.config/fontconfig/normal-fonts.diff"
+fi
+
+# Write font scale
+printf "%s" "$fontscale" > $HOME/.fontscale
+
+# Scale fonts
+cd /
+patch -p0 --follow-symlinks -N < "$patch"
+
+if [ "$1" = "firefox" ]; then
+  # Scale Firefox UI
+  pkill firefox
+  sed -i 's/user_pref("layout.css.devPixelsPerPx", "[0-9].[0-9]");/user_pref("layout.css.devPixelsPerPx", "'"$fontscale"'");/g' $HOME/.mozilla/firefox/td0a8llh.default-release/prefs.js
+fi
+
+# Restart i3
+restart-i3
