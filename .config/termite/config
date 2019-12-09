@@ -1,5 +1,5 @@
 [options]
-font = Inconsolata 16
+font = Inconsolata 17
 
 browser = xdg-open
 clickable_url = true
