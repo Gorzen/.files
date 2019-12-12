@@ -1,4 +1,11 @@
 set selection-clipboard clipboard
 set guioptions none
 set first-page-column 1:1
+
+# Remap j and k
+map j navigate next
+map k navigate previous
+map J scroll down
+map K scroll up
+
 map p toggle_statusbar
