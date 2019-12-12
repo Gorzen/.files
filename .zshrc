@@ -85,13 +85,13 @@ alias ran='ranger'
 
 # X server
 alias mouse-nat-scroll='xinput --set-prop "Logitech Gaming Mouse G502" "libinput Natural Scrolling Enabled" 0'
+alias quit-i3='i3-msg exit'
+alias wininfo="xprop WM_CLASS | grep -o '\"[^\"]*\"' | head -n 1"
 ## Monitors setup - xrandr
 ### Enable second monitor
 alias dual-monitor='xrandr --output HDMI1 --auto --left-of eDP1; ~/.fehbg'
 ### Refresh xrandr, i.e. after unplugging HDMI for example, to disable second monitor
 alias refresh-monitor='xrandr --auto; ~/.fehbg'
-alias quit-i3='i3-msg exit'
-alias wininfo="xprop WM_CLASS | grep -o '\"[^\"]*\"' | head -n 1"
 
 # Git
 alias g='git'
