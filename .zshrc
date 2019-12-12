@@ -129,12 +129,18 @@ alias venv='source $HOME/.venv/bin/activate'
 alias venv3='source $HOME/.venv-3.7.0/bin/activate'
 
 # Network
-alias public-ip='curl ifconfig.me/ip; printf "\n"'
 alias vpn-epfl='sudo openconnect -b vpn.epfl.ch -u liseli'
 alias vpn-epfl-off='sudo pkill openconnect'
 
+# Curl
+function weather { curl wttr.in/"$1" }
+function news { curl getnews.tech/"$1" }
+function cheatsh { curl cheat.sh/"$1" }
+function public-info { curl ifconfig.co/"$1" }
+
 # Light config
 alias night='xbacklight -set 2; redshift -P -O 2500k'
+alias soft='redshift -P -O 4000k'
 alias day='redshift -x'
 
 # Change directories
