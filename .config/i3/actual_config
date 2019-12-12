@@ -77,9 +77,9 @@ set $ws1 "1 Work "
 set $ws2 "2 Browser "
 set $ws3 "3 Doc "
 set $ws4 "4 Ressources "
-set $ws5 "5 Laptop "
+set $ws5 "5 Mail "
 set $ws6 "6"
-set $ws7 "7"
+set $ws7 "7 Laptop "
 set $ws8 "8 Helper "
 set $ws9 "9 Utils "
 set $ws10 "10 Media "
@@ -117,32 +117,32 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-			# These bindings trigger as soon as you enter the resize mode
+      # These bindings trigger as soon as you enter the resize mode
 
-			# Pressing left will shrink the window’s width.
-			# Pressing right will grow the window’s width.
-			# Pressing up will shrink the window’s height.
-			# Pressing down will grow the window’s height.
-			bindsym h resize shrink width 2 px or 2 ppt
-			bindsym k resize grow height 2 px or 2 ppt
-			bindsym j resize shrink height 2 px or 2 ppt
-			bindsym l resize grow width 2 px or 2 ppt
+      # Pressing left will shrink the window’s width.
+      # Pressing right will grow the window’s width.
+      # Pressing up will shrink the window’s height.
+      # Pressing down will grow the window’s height.
+      bindsym h resize shrink width 2 px or 2 ppt
+      bindsym k resize grow height 2 px or 2 ppt
+      bindsym j resize shrink height 2 px or 2 ppt
+      bindsym l resize grow width 2 px or 2 ppt
 
-			bindsym Shift+h resize shrink width 20 px or 20 ppt
-			bindsym Shift+k resize grow height 20 px or 20 ppt
-			bindsym Shift+j resize shrink height 20 px or 20 ppt
-			bindsym Shift+l resize grow width 20 px or 20 ppt
+      bindsym Shift+h resize shrink width 20 px or 20 ppt
+      bindsym Shift+k resize grow height 20 px or 20 ppt
+      bindsym Shift+j resize shrink height 20 px or 20 ppt
+      bindsym Shift+l resize grow width 20 px or 20 ppt
 
-			# same bindings, but for the arrow keys
-			bindsym Left resize shrink width 2 px or 2 ppt
-			bindsym Up resize grow height 2 px or 2 ppt
-			bindsym Down resize shrink height 2 px or 2 ppt
-			bindsym Right resize grow width 2 px or 2 ppt
+      # same bindings, but for the arrow keys
+      bindsym Left resize shrink width 2 px or 2 ppt
+      bindsym Up resize grow height 2 px or 2 ppt
+      bindsym Down resize shrink height 2 px or 2 ppt
+      bindsym Right resize grow width 2 px or 2 ppt
 
-			# back to normal: Enter or Escape or $mod+r
-			bindsym Return mode "default"
-			bindsym Escape mode "default"
-			bindsym $mod+o mode "default"
+      # back to normal: Enter or Escape or $mod+r
+      bindsym Return mode "default"
+      bindsym Escape mode "default"
+      bindsym $mod+o mode "default"
 }
 
 bindsym $mod+o mode "resize"
@@ -224,12 +224,14 @@ client.background        ^r@V^
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command	i3blocks
-	position				top
-	tray_output primary
-	#font pango: FontAwesome 11.3
-	font pango: monospace 11.3
-	#font pango:monospace 11.3 pango:Ionicons 11.3
+  status_command  i3blocks
+  position        top
+  tray_output     primary
+  tray_padding    2
+
+  #font pango: FontAwesome 11.3
+  font pango: monospace 11.3
+  #font pango:monospace 11.3 pango:Ionicons 11.3
 
   colors {
     background ^r@DM>l(15)^
@@ -238,7 +240,7 @@ bar {
     #separator ^r@DM^
     separator  ^r@V^
 
-		# class						  border        background    text
+    # class              border        background    text
     focused_workspace   ^r@V^         ^r@V^         ^r@V>ttc^
     active_workspace    ^r@DM>l(15)^  ^r@DM>l(15)^  ^r@V^
     inactive_workspace  ^r@DM>l(15)^  ^r@DM>l(15)^  ^r@LV^
