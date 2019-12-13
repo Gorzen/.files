@@ -3,6 +3,7 @@
 import os
 import subprocess
 import multiprocessing
+from colors import color as c
 
 
 def run_command(cmd, cwd="."):
@@ -88,7 +89,7 @@ def print_dirty_repos(repos):
 
         if dirty_repo:
             repo_short_name = "/".join(repo.split("/")[4:])
-            print(repo_short_name)
+            print(f"{c.PURPLE}{c.BOLD}{c.UNDERLINE}{repo_short_name}:{c.END}")
 
         if dirty_branch:
             print(git_branch)
@@ -104,4 +105,3 @@ if __name__ == "__main__":
     repos = get_repos()
     fetch_repos(repos)
     print_dirty_repos(repos)
-

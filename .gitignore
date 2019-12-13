@@ -1,6 +1,9 @@
 # Compiled code
 *.jar
 
+# Python
+__pycache__/
+
 # 'Compiled' files
 .local/bin/dmenu
 .local/bin/lock-screen
