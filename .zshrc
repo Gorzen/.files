@@ -4,11 +4,11 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="lulu"
 
 plugins=(zsh-autosuggestions
-				 colored-man-pages
-				 z
-				 zsh-syntax-highlighting
-				 colorize
-				)
+         colored-man-pages
+         z
+         zsh-syntax-highlighting
+         colorize
+        )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -81,7 +81,7 @@ alias ricemood="$HOME/.manual/ricemood/dist/bin/ricemood.js"
 
 # Ranger
 alias ra='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias ran='ranger' 
+alias ran='ranger'
 
 # X server
 alias mouse-nat-scroll='xinput --set-prop "Logitech Gaming Mouse G502" "libinput Natural Scrolling Enabled" 0'
@@ -102,7 +102,7 @@ alias dg='dirty-git-epfl'
 alias gp='git -c core.pager="less -X"'
 ## Quickly add, commit and push
 function gc {
-	git add .; git commit -m "$@"; git push
+  git add .; git commit -m "$@"; git push
 }
 
 # Nmcli
@@ -181,31 +181,31 @@ alias gse='cd ~/EPFL/MA1/Stats/Exercises'
 # Open stuff
 alias search='cd $HOME; file_search >> /dev/null; cd - >> /dev/null'
 function o {
-	if [ $# -eq 0 ]; then
-		file_search >> /dev/null
-	else
-		xdg-open $1 &|
-	fi
+  if [ $# -eq 0 ]; then
+    file_search >> /dev/null
+  else
+    xdg-open $1 &|
+  fi
 }
 
 # Do stuff and detach it from terminal
 function doo {
-	$@ &> /dev/null &|
+  $@ &> /dev/null &|
 }
 
 # Zathura tab
 function zattab {
-	tabbed -c zathura $@ -e >> /dev/null &|
+  tabbed -c zathura $@ -e >> /dev/null &|
 }
 
 # Search history
 function hg {
-	history | grep "$@"
+  history | grep "$@"
 }
 
 # Search processes
 function pg {
-	ps -aux | grep "$@"	
+  ps -aux | grep "$@"
 }
 
 # Ada
@@ -213,7 +213,7 @@ function pg {
 alias adac='ssh liseli@iccluster040.iccluster.epfl.ch'
 ## Forward port from remote to localhost (port as first argument)
 function adaf {
-	ssh -N -L "$1":localhost:"$1" liseli@iccluster040.iccluster.epfl.ch
+  ssh -N -L "$1":localhost:"$1" liseli@iccluster040.iccluster.epfl.ch
 }
 
 # ISP
