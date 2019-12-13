@@ -179,6 +179,12 @@ nnoremap <Leader>M :w<CR>:!make<CR>
 " Press enter twice (to return to vim automatically if make runs as expected)
 nmap <Leader>m <Leader>M<CR>
 
+" Remove trailing white spaces, replace tabs, remove empty ending lines
+command FixSpace RemoveEmptyEndingLines|RemoveTrailingWhiteSpaces|ReplaceTabs
+command -bar RemoveEmptyEndingLines %s/\($\n\s*\)\+\%$//e
+command -bar RemoveTrailingWhiteSpaces %s/\s*$//ge
+command -bar ReplaceTabs %s/\t/  /ge
+
 " Source vimrc
 command Rr source ~/.vimrc
 
