@@ -170,7 +170,7 @@ exec --no-startup-id urxvt -name dropdown_term
 bindsym $mod+z [instance=dropdown_calc] scratchpad show ; move position center
 bindsym $mod+Shift+z [instance=dropdown_term] scratchpad show ; move position center
 
-# Moving workspaces between screens 
+# Moving workspaces between screens
 bindsym $mod+m move workspace to output right
 bindsym $mod+Shift+m move workspace to output left
 
