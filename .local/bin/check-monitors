@@ -11,6 +11,7 @@ if [ "$(xrandr | grep "HDMI1 connected")" ]; then
   # Multiple monitors
   fontscale="1.3"
   patch="$HOME/.config/fontconfig/bigger-fonts.diff"
+  tray="HDMI1"
 
   # Dual monitor
 	xrandr --output HDMI1 --auto --left-of eDP1
@@ -25,6 +26,7 @@ else
   # Single monitor
   fontscale="1.0"
   patch="$HOME/.config/fontconfig/normal-fonts.diff"
+  tray="primary"
 fi
 
 # Write font scale
@@ -33,6 +35,9 @@ printf "%s" "$fontscale" > $HOME/.fontscale
 # Scale fonts
 cd /
 patch -p0 --follow-symlinks -N < "$patch"
+
+# Change tray_output i3
+sed -i 's/tray_output\(\s\+\)\w*$/tray_output\1'"$tray"'/g' $HOME/.config/i3/actual_config $HOME/.config/i3/config
 
 if [ "$1" = "firefox" ]; then
   # Scale Firefox UI
