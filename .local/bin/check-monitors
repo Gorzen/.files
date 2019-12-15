@@ -37,7 +37,7 @@ cd /
 patch -p0 --follow-symlinks -N < "$patch"
 
 # Change tray_output i3
-sed -i 's/tray_output\(\s\+\)\w*$/tray_output\1'"$tray"'/g' $HOME/.config/i3/actual_config $HOME/.config/i3/config
+sed -i --follow-symlinks 's/tray_output\(\s\+\)\w*$/tray_output\1'"$tray"'/g' $HOME/.config/i3/actual_config $HOME/.config/i3/config
 
 if [ "$1" = "firefox" ]; then
   # Scale Firefox UI
