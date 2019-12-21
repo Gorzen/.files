@@ -127,6 +127,7 @@ alias jptl='jupyter lab &> /dev/null'
 ## Virtual env
 alias venv='source $HOME/.venv/bin/activate'
 alias venv3='source $HOME/.venv-3.7.0/bin/activate'
+alias calendar='venv; cd ~/Documents/Code/Calendar/ ; ipython -ic "from mycalendar import *"'
 
 # Network
 alias vpn-epfl='sudo openconnect -b vpn.epfl.ch -u liseli'
