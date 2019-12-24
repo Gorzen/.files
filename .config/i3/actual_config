@@ -66,6 +66,9 @@ bindsym $mod+Shift+u move scratchpad
 bindsym $mod+Shift+i exec --no-startup-id "hide-floating-windows"
 bindsym $mod+i exec --no-startup-id "show-scratchpad-windows"
 
+# Quickly resize window
+bindsym $mod+Ctrl+space exec --no-startup-id "xdotool windowsize $(xdotool getactivewindow) 800 900"
+
 # focus the parent container
 bindsym $mod+a focus parent
 # focus the child container
