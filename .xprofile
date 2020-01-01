@@ -13,7 +13,6 @@ xset r rate 350 25
 
 # Screen saver parameters
 ## Dim screen after 5 minutes then 15 seconds later lock screen and turn it off
-xset s 300 15
 xss-lock -l -n dim-screen -- lock-screen &
 
 # Xresources
