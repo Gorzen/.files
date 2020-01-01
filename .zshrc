@@ -179,6 +179,7 @@ alias grc='cd ~/EPFL/MA1/SHS/Conferences'
 alias gs='cd ~/EPFL/MA1/Stats'
 alias gsd='cd ~/EPFL/MA1/Stats/Davison'
 alias gse='cd ~/EPFL/MA1/Stats/Exercises'
+alias gsl='cd ~/EPFL/MA1/Stats/Lectures'
 
 # Open stuff
 alias search='cd $HOME; file_search >> /dev/null; cd - >> /dev/null'
