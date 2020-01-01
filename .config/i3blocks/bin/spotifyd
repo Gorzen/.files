@@ -11,4 +11,12 @@ title=$(playerctl metadata title)
 
 if [ -n "$artist" ] && [ -n "$title" ]; then
   printf "$artist - $title\n"
+else
+  # Check if spotifyd is running
+  spotifyd_id=$(pgrep spotifyd)
+
+  if [ -n "$spotifyd_id" ]; then
+    # Print empty string such we can still click on the block
+    printf "\n"
+  fi
 fi
