@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+case $BLOCK_BUTTON in
+  1) playerctl previous ;; # Left click
+  2) playerctl play-pause ;; # Middle click
+  3) playerctl next ;; # Right click
+esac
+
+artist=$(playerctl metadata artist)
+title=$(playerctl metadata title)
+
+if [ -n "$artist" ] && [ -n "$title" ]; then
+  printf "$artist - $title\n"
+fi

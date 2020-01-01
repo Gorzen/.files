@@ -5,7 +5,11 @@ markup=pango
 [spotify]
 label= 
 interval=5
-instance=spotify
+signal=10
+
+[spotifyd]
+label= 
+interval=once
 signal=10
 
 [cpu_usage2]
