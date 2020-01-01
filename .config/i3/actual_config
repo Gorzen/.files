@@ -177,6 +177,9 @@ bindsym $mod+Shift+z [instance=dropdown_term] scratchpad show ; move position ce
 bindsym $mod+m move workspace to output right
 bindsym $mod+Shift+m move workspace to output left
 
+bindsym $mod+Ctrl+h focus output left
+bindsym $mod+Ctrl+l focus output right
+
 # Pulse Audio controls
 ## Increase sound volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id "pulsemixer --unmute; pulsemixer --change-volume +5; pkill -SIGRTMIN+10 i3blocks"
