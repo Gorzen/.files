@@ -199,6 +199,7 @@ bindsym $mod+p exec --no-startup-id center-mouse; exec --no-startup-id passmenu
 bindsym $mod+b exec --no-startup-id bookmarks
 bindsym $mod+Shift+b exec --no-startup-id bookmarks-add
 bindsym $mod+Shift+s exec --no-startup-id spotify-scaled
+bindsym $mod+Ctrl+b exec --no-startup-id blueman-manager
 
 # Screenshots
 bindsym --release $mod+Print exec --no-startup-id "screenshot -s"
