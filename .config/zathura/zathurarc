@@ -8,4 +8,8 @@ map k navigate previous
 map J scroll down
 map K scroll up
 
+# Mapping for mouse (same keybindings as Firefox)
+map <C-PageUp> navigate previous
+map <C-PageDown> navigate next
+
 map p toggle_statusbar
