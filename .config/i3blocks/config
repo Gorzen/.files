@@ -2,15 +2,21 @@ command=~/.config/i3blocks/bin/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
+# SIGNALS
+# 1: volume
+# 2: brightness
+# 3: spotifyd
+# 4: spotify
+
 [spotify]
 label= 
 interval=5
-signal=10
+signal=4
 
 [spotifyd]
 label= 
 interval=once
-signal=10
+signal=3
 
 [cpu_usage2]
 LABEL=
@@ -36,11 +42,11 @@ PRINTF_COMMAND=printf "%.1f/%.1f %s/s\n", rx, wx, unit;
 
 [brightness]
 interval=10
-signal=10
+signal=2
 
 [volume]
 interval=10
-signal=10
+signal=1
 
 [internet]
 interval=10

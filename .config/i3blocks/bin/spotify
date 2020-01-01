@@ -17,7 +17,7 @@ try:
             control_iface.PlayPause()
         elif (os.environ['BLOCK_BUTTON'] == '3'):
             control_iface.Next()
-        os.system("sleep 0.5; pkill -SIGRTMIN+10 i3blocks")
+        os.system("sleep 0.5; pkill -SIGRTMIN+4 i3blocks")
 
     spotify_iface = dbus.Interface(spotify, 'org.freedesktop.DBus.Properties')
     props = spotify_iface.Get('org.mpris.MediaPlayer2.Player', 'Metadata')
