@@ -8,12 +8,12 @@ markup=pango
 # 3: spotifyd
 # 4: spotify
 
-[spotify]
+[i3-spotify]
 label= 
 interval=5
 signal=4
 
-[spotifyd]
+[i3-spotifyd]
 label= 
 interval=once
 signal=3

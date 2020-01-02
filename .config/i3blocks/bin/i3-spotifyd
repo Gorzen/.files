@@ -6,16 +6,14 @@ case $BLOCK_BUTTON in
   3) playerctl next ;; # Right click
 esac
 
-artist=$(playerctl metadata artist)
-title=$(playerctl metadata title)
+artist=$(playerctl metadata artist 2> /dev/null)
+title=$(playerctl metadata title 2> /dev/null)
 
 if [ -n "$artist" ] && [ -n "$title" ]; then
   printf "$artist - $title\n"
 else
   # Check if spotifyd is running
-  spotifyd_id=$(pgrep spotifyd)
-
-  if [ -n "$spotifyd_id" ]; then
+  if [ -n "$(pgrep ^spotifyd$)" ]; then
     # Print empty string such we can still click on the block
     printf "\n"
   fi
