@@ -194,7 +194,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 5; pkill -SIGR
 bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5; pkill -SIGRTMIN+2 i3blocks"
 
 # Shortcuts applications
-bindsym $mod+q exec firefox
+bindsym $mod+q exec opera
 bindsym $mod+p exec --no-startup-id center-mouse; exec --no-startup-id passmenu
 bindsym $mod+b exec --no-startup-id bookmarks
 bindsym $mod+Shift+b exec --no-startup-id bookmarks-add
@@ -217,7 +217,7 @@ bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+x exec --no-startup-id "xcalib -invert -alter"
 
 # YouTube
-bindsym --release $mod+y exec --no-startup-id "xdotool key ctrl+l ctrl+c F6; sleep 0.15; youtube-viewer $(xclip -selection c -o)"
+bindsym --release $mod+y exec --no-startup-id "xdotool key ctrl+l ctrl+c F9; sleep 0.15; youtube-viewer $(xclip -selection c -o)"
 
 # class                  border        background    text              indicator  child_border
 client.focused           ^r@V^         ^r@V^         ^r@V>ttc^         ^r@LV^     ^r@V^

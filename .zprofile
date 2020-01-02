@@ -2,7 +2,7 @@
 export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
 export EDITOR="vim"
 export TERMINAL="termite"
-export BROWSER="firefox"
+export BROWSER="opera"
 export READER="zathura"
 export FILE="ranger"
 export LESS="-R"
