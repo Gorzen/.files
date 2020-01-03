@@ -80,6 +80,7 @@ alias upd='spmu; fwupd; dg'
 alias cordless="$HOME/.manual/cordless/cordless"
 alias ricemood="$HOME/.manual/ricemood/dist/bin/ricemood.js"
 alias spotifyd="$HOME/.manual/spotifyd/target/release/spotifyd"
+alias castnow="$HOME/.manual/castnow/index.js"
 
 # Ranger
 alias ra='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
