@@ -74,7 +74,7 @@ alias spmu='sudo pacman -Syu'
 
 # Firmware update
 alias fwupd='fwupdmgr refresh; fwupdmgr get-updates; fwupdmgr update'
-alias upd='spmu; fwupd; dg'
+alias upd='printf "Pacman update:\n"; spmu; printf "\n\nFirmware update:\n"; fwupd; printf "\n\nEPFL git repositories:\n"; dg'
 
 # Manually installed packages
 alias cordless="$HOME/.manual/cordless/cordless"
@@ -87,15 +87,12 @@ alias ra='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; c
 alias ran='ranger'
 
 # X server
+## 'check-monitors' does all the monitor setup
 alias mouse-nat-scroll='xinput --set-prop "Logitech Gaming Mouse G502" "libinput Natural Scrolling Enabled" 0'
 alias quit-i3='i3-msg exit'
 alias wininfo="xprop WM_CLASS | grep -o '\"[^\"]*\"' | head -n 1"
 alias newxsession='startx -- :1'
-## Monitors setup - xrandr
-### Enable second monitor
-alias dual-monitor='xrandr --output HDMI1 --auto --left-of eDP1; ~/.fehbg'
-### Refresh xrandr, i.e. after unplugging HDMI for example, to disable second monitor
-alias refresh-monitor='xrandr --auto; ~/.fehbg'
+alias rotate_hdmi1='xrandr --output HDMI1 --rotate left --auto; ~/.fehbg'
 
 # Git
 alias g='git'
@@ -170,6 +167,7 @@ alias gil='cd ~/EPFL/MA1/InfoSec/Lectures'
 alias gm='cd ~/EPFL/MA1/ML'
 alias gmc='cd ~/EPFL/MA1/ML/Course'
 alias gmh='cd ~/EPFL/MA1/ML/Homeworks'
+alias gml='cd ~/EPFL/MA1/ML/Lectures'
 alias gmp='cd ~/EPFL/MA1/ML/Projects/Project-02'
 ## Natural Language Processing
 alias gn='cd ~/EPFL/MA1/NatLang'
