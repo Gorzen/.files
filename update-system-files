@@ -14,7 +14,7 @@ object Main {
 
     // System directories we want to update
     val SYSTEM_DIRECTORIES = List("etc")
-    val UNLINKABLE_FILES = List(".config/mimeapps.list")
+    val UNLINKABLE_FILES = List(".config/mimeapps.list", ".config/fontconfig/fonts.conf")
     val HOME = sys.env("HOME")
 
     SYSTEM_DIRECTORIES.foreach(dir => {
