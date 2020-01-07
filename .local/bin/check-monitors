@@ -1,20 +1,41 @@
 #!/bin/zsh
 
-# Refresh xrandr
-xrandr --output eDP1 --primary --auto
-~/.fehbg
+# xrandr
+function multiple_monitor_setup {
+  DP1="$(xrandr | grep "^DP1 connected")"
+  DP2="$(xrandr | grep "^DP2 connected")"
+  HDMI1="$(xrandr | grep "^HDMI1 connected")"
+
+  if [ "$DP1" ]; then
+    primary="DP1"
+  elif [ "$DP2" ]; then
+    primary="DP2"
+  elif [ "$HDMI1" ]; then
+    primary="HDMI1"
+  else
+    printf "Error: No external monitor detected" >&2
+    exit 1
+  fi
+
+  # Enable primary monitor
+  xrandr --output "$primary" --primary --left-of eDP1 --auto
+
+  # Enable secondary monitor (HDMI1) if plugged
+  if [ "$HDMI1" ] && [ "$primary" != "HDMI1" ]; then
+    xrandr --output HDMI1 --left-of "$primary" --auto
+  fi
+}
 
 # Kill imwheel if it were running
-#pkill imwheel
+pkill imwheel
 
-if [ "$(xrandr | grep "^DP1 connected")" ]; then
+if [ "$(xrandr | grep "^DP1 connected\|^DP2 connected\|^HDMI connected")" ]; then
   # Multiple monitors
   fontscale="1.2"
   patch="$HOME/.config/fontconfig/bigger-fonts.diff"
 
-  # Dual monitor
-	xrandr --output DP1 --right-of eDP1 --primary --auto
-	~/.fehbg
+  # xrandr setup
+  multiple_monitor_setup
 
   # Mouse natural scrolling
   xinput --set-prop "Logitech Gaming Mouse G502" "libinput Natural Scrolling Enabled" 0
@@ -24,7 +45,7 @@ if [ "$(xrandr | grep "^DP1 connected")" ]; then
   xset dpms 0 0 0
 
   # Increase scroll step
-  #imwheel
+  imwheel
 else
   # Single monitor
   fontscale="1.0"
@@ -33,7 +54,13 @@ else
   # Enable lock screen
   xset s 300 15
   xset dpms 600 600 600
+
+  # xrandr
+  xrandr --output eDP1 --primary --auto
 fi
+
+# Fix background
+~/.fehbg
 
 # Write font scale
 printf "%s" "$fontscale" > $HOME/.fontscale
@@ -41,9 +68,6 @@ printf "%s" "$fontscale" > $HOME/.fontscale
 # Scale fonts
 cd /
 patch -p0 --follow-symlinks -N < "$patch"
-
-# Change tray_output i3
-#sed -i --follow-symlinks 's/tray_output\(\s\+\)\w*$/tray_output\1'"$tray"'/g' $HOME/.config/i3/actual_config $HOME/.config/i3/config
 
 if [ "$1" = "firefox" ]; then
   # Scale Firefox UI
