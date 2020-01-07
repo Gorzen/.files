@@ -1,0 +1,23 @@
+#!/bin/zsh
+setopt shwordsplit
+
+i3-msg workspace "Opening stuff"
+i3-msg layout tabbed
+
+if [ "$#" -ge 1 ]; then
+  directories=$(for dir in $@; printf "$dir/ ")
+else
+  directories=$(for dir in */; printf "$dir ")
+fi
+
+for dir in $directories; do
+  echo "$dir"
+  for file in $dir*.pdf; do
+    echo "$file"
+    zathura --fork "$file"
+    sleep 0.75
+  done
+  i3-msg focus parent
+done
+
+i3-msg focus child
