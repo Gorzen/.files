@@ -1,0 +1,27 @@
+#!/bin/zsh
+
+# Check if and which spotify player is running, prefer spotify over spotifyd
+if [ "$(playerctl -l | grep "^spotify$")" ]; then
+  player="spotify"
+elif [ "$(playerctl -l | grep "^spotifyd$")" ]; then
+  player="spotifyd"
+else
+  exit
+fi
+
+# Mouse buttons
+case $BLOCK_BUTTON in
+  1) playerctl -p "$player" previous ;; # Left click
+  2) playerctl -p "$player" play-pause ;; # Middle click
+  3) playerctl -p "$player" next ;; # Right click
+esac
+
+# Wait a bit to refresh metadata
+if [ "$BLOCK_BUTTON" ]; then
+  sleep 0.5
+fi
+
+artist=$(playerctl -p "$player" metadata artist 2> /dev/null)
+title=$(playerctl -p "$player" metadata title 2> /dev/null)
+
+printf "$artist - $title\n"
