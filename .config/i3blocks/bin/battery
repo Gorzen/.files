@@ -14,7 +14,7 @@ esac
 capacity=$(cat /sys/class/power_supply/BAT0/capacity) || exit
 status=$(cat /sys/class/power_supply/BAT0/status)
 
-status_emoji="$(echo "$status" | sed -e "s/,//;s/Discharging//;s/Not Charging//;s/Charging//;s/Unknown//;s/Full//;s/ 0*/ /g;s/ :/ /g")"
+status_emoji="$(echo "$status" | sed -e "s/,//;s/Discharging//;s/Not Charging//;s/Charging/ /;s/Unknown//;s/Full/ /;s/ 0*/ /g;s/ :/ /g")"
 capacity_percent="$capacity%"
 
 capacity_emoji=""
@@ -32,8 +32,8 @@ else
 fi
 
 if [ "$capacity" -ge 20 ] || [ "$status" = "Charging" ]; then
-	printf "%s %s %s\n" "$status_emoji" "$capacity_emoji" "$capacity_percent"
+	printf "%s%s %s\n" "$status_emoji" "$capacity_emoji" "$capacity_percent"
 else
-	printf "<span color='#ff0000'>%s %s  %s</span>\n" "$status_emoji" "$capacity_emoji" "$capacity_percent"
+	printf "<span color='#ff0000'>%s%s  %s</span>\n" "$status_emoji" "$capacity_emoji" "$capacity_percent"
 fi
 
