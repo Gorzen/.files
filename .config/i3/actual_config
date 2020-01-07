@@ -194,7 +194,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 5; pkill -SIGR
 bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 5; pkill -SIGRTMIN+2 i3blocks"
 
 # Shortcuts applications
-bindsym $mod+q exec opera
+bindsym $mod+q exec $BROWSER
 bindsym $mod+p exec --no-startup-id center-mouse; exec --no-startup-id passmenu
 bindsym $mod+b exec --no-startup-id bookmarks
 bindsym $mod+Shift+b exec --no-startup-id bookmarks-add
