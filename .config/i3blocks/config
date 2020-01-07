@@ -5,17 +5,11 @@ markup=pango
 # SIGNALS
 # 1: volume
 # 2: brightness
-# 3: spotifyd
-# 4: spotify
+# 3: spotify
 
 [i3-spotify]
 label= 
-interval=5
-signal=4
-
-[i3-spotifyd]
-label= 
-interval=once
+interval=10
 signal=3
 
 [cpu_usage2]
