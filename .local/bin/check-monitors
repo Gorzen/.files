@@ -13,7 +13,7 @@ function multiple_monitor_setup {
   elif [ "$HDMI1" ]; then
     primary="HDMI1"
   else
-    printf "Error: No external monitor detected" >&2
+    printf "Error: No external monitor detected\n" >&2
     exit 1
   fi
 
@@ -56,7 +56,7 @@ else
   xset dpms 600 600 600
 
   # xrandr
-  xrandr --output eDP1 --primary --auto
+  xrandr --auto
 fi
 
 # Fix background
