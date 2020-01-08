@@ -70,7 +70,7 @@ def printProgressBar(iteration, total, length=100, fill="█"):
     print("\rProgress: |%s| %s%% Complete" % (bar, percent), end="\r")
     # Print New Line on Complete
     if iteration == total:
-        print()
+        print('\n')
 
 
 def print_dirty_repos(repos):
