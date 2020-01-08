@@ -1,5 +1,9 @@
 #!/bin/zsh
+
+# Loop on string of words
 setopt shwordsplit
+# Don't error when no matches are found
+setopt +o nomatch
 
 i3-msg workspace "Opening stuff"
 i3-msg layout tabbed
@@ -8,16 +12,23 @@ if [ "$#" -ge 1 ]; then
   directories=$(for dir in $@; printf "$dir/ ")
 else
   directories=$(for dir in */; printf "$dir ")
+  # Add current directory
+  directories="./ $directories"
 fi
+
 
 for dir in $directories; do
   echo "$dir"
-  for file in $dir*.pdf; do
-    echo "$file"
-    zathura --fork "$file"
-    sleep 0.75
-  done
-  i3-msg focus parent
+  if [ -d "$dir" ]; then
+    for file in $dir*.pdf; do
+      if [ -f "$file" ]; then
+        echo "$file"
+        zathura --fork "$file"
+        sleep 0.75
+      fi
+    done
+    i3-msg focus parent
+  fi
 done
 
 i3-msg focus child
