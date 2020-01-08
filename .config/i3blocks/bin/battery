@@ -17,8 +17,6 @@ status=$(cat /sys/class/power_supply/BAT0/status)
 status_emoji="$(echo "$status" | sed -e "s/,//;s/Discharging//;s/Not Charging//;s/Charging/ /;s/Unknown//;s/Full/ /;s/ 0*/ /g;s/ :/ /g")"
 capacity_percent="$capacity%"
 
-capacity_emoji=""
-
 if [ "$capacity" -ge 90 ]; then
 	capacity_emoji=""
 elif [ "$capacity" -ge 65 ]; then
