@@ -92,7 +92,7 @@ alias mouse-nat-scroll='xinput --set-prop "Logitech Gaming Mouse G502" "libinput
 alias quit-i3='i3-msg exit'
 alias wininfo="xprop WM_CLASS | grep -o '\"[^\"]*\"' | head -n 1"
 alias newxsession='startx -- :1'
-alias rotate_hdmi1='xrandr --output HDMI1 --rotate left --auto; ~/.fehbg'
+alias rotate_hdmi1='xrandr --output HDMI1 --rotate left --left-of DP2 --auto; ~/.fehbg'
 
 # Git
 alias g='git'
