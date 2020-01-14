@@ -29,7 +29,10 @@ function multiple_monitor_setup {
 # Kill imwheel if it were running
 pkill imwheel
 
-if [ "$(xrandr | grep "^DP1 connected\|^DP2 connected\|^HDMI connected")" ]; then
+# Refresh xrandr
+xrandr --auto
+
+if [ "$(xrandr | grep "^DP1 connected\|^DP2 connected\|^HDMI1 connected")" ]; then
   # Multiple monitors
   fontscale="1.2"
   patch="$HOME/.config/fontconfig/bigger-fonts.diff"
@@ -54,9 +57,6 @@ else
   # Enable lock screen
   xset s 300 15
   xset dpms 600 600 600
-
-  # xrandr
-  xrandr --auto
 fi
 
 # Fix background
